@@ -11,7 +11,6 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
-apply plugin: 'org.apache.ctakes'
 
 jar {
     baseName = 'FinalProject-API-Server'
@@ -28,4 +27,5 @@ targetCompatibility = 1.8
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
     testCompile('org.springframework.boot:spring-boot-starter-test')
+    compile group: 'org.apache.ctakes', name: 'ctakes-core', version: '4.0.0'
 }
