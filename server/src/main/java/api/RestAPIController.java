@@ -72,6 +72,7 @@ public class RestAPIController {
             throws Exception {
 		System.out.println("analysisText=" + analysisText);
         String pipeline = DEFAULT_PIPELINE;
+//		String pipeline = FULL_PIPELINE;
         if(pipelineOptParam.isPresent()) {
             if(FULL_PIPELINE.equalsIgnoreCase(pipelineOptParam.get())) {
                 pipeline = FULL_PIPELINE;
