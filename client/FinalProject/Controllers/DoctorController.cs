@@ -13,6 +13,10 @@ namespace FinalProject.Controllers
         
         private YoyagDBEntities db = new YoyagDBEntities();
 
+        public ActionResult Done()
+        {
+            return View();
+        }
         // GET: Doctor
         public ActionResult Index()
         {
