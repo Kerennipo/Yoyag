@@ -24,8 +24,19 @@ repositories {
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
+configurations.all {
+  exclude group: "org.slf4j", module: "slf4j-log4j12"
+}
+
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
     testCompile('org.springframework.boot:spring-boot-starter-test')
     compile group: 'org.apache.ctakes', name: 'ctakes-core', version: '4.0.0'
+    compile group: 'org.apache.ctakes', name: 'ctakes-assertion', version: '4.0.0'
+    compile group: 'org.apache.ctakes', name: 'ctakes-dictionary-lookup', version: '4.0.0'
+    compile group: 'org.apache.ctakes', name: 'ctakes-clinical-pipeline', version: '4.0.0'
+    compile group: 'org.apache.ctakes', name: 'ctakes-temporal', version: '4.0.0'
+    compile group: 'org.apache.ctakes', name: 'ctakes-temporal-res', version: '4.0.0'
+    compile group: 'org.apache.uima', name: 'uimaj-json', version: '2.10.2'
+    testCompile group: 'org.hsqldb', name: 'hsqldb', version: '2.3.4'
 }

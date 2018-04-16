@@ -1,0 +1,1123 @@
+{
+    "_context": {
+        "_types": {
+            "AnatomicalSiteMention": {
+                "_feature_types": {
+                    "bodyLaterality": "_ref",
+                    "bodySide": "_ref",
+                    "entity": "_ref",
+                    "ontologyConceptArr": "_ref",
+                    "originalText": "_ref",
+                    "sofa": "_ref"
+                },
+                "_id": "org.apache.ctakes.typesystem.type.textsem.AnatomicalSiteMention"
+            },
+            "Annotation": {
+                "_feature_types": {
+                    "sofa": "_ref"
+                },
+                "_id": "uima.tcas.Annotation",
+                "_subtypes": [
+                    "IdentifiedAnnotation",
+                    "Chunk",
+                    "ConllDependencyNode",
+                    "DocumentAnnotation",
+                    "LookupWindowAnnotation",
+                    "Predicate",
+                    "Segment",
+                    "SemanticArgument",
+                    "Sentence",
+                    "BaseToken",
+                    "TreebankNode"
+                ]
+            },
+            "AnnotationBase": {
+                "_feature_types": {
+                    "sofa": "_ref"
+                },
+                "_id": "uima.cas.AnnotationBase",
+                "_subtypes": [
+                    "Annotation"
+                ]
+            },
+            "ArrayBase": {
+                "_id": "uima.cas.ArrayBase",
+                "_subtypes": [
+                    "FSArray",
+                    "StringArray"
+                ]
+            },
+            "BaseToken": {
+                "_feature_types": {
+                    "lemmaEntries": "_ref",
+                    "sofa": "_ref"
+                },
+                "_id": "org.apache.ctakes.typesystem.type.syntax.BaseToken",
+                "_subtypes": [
+                    "SymbolToken",
+                    "WordToken"
+                ]
+            },
+            "Chunk": {
+                "_feature_types": {
+                    "sofa": "_ref"
+                },
+                "_id": "org.apache.ctakes.typesystem.type.syntax.Chunk"
+            },
+            "ConllDependencyNode": {
+                "_feature_types": {
+                    "head": "_ref",
+                    "phead": "_ref",
+                    "sofa": "_ref"
+                },
+                "_id": "org.apache.ctakes.typesystem.type.syntax.ConllDependencyNode"
+            },
+            "DocumentAnnotation": {
+                "_feature_types": {
+                    "sofa": "_ref"
+                },
+                "_id": "uima.tcas.DocumentAnnotation"
+            },
+            "DocumentID": {
+                "_id": "org.apache.ctakes.typesystem.type.structured.DocumentID"
+            },
+            "Element": {
+                "_feature_types": {
+                    "mentions": "_ref",
+                    "ontologyConcept": "_ref"
+                },
+                "_id": "org.apache.ctakes.typesystem.type.refsem.Element",
+                "_subtypes": [
+                    "Event"
+                ]
+            },
+            "EmptyFSList": {
+                "_id": "uima.cas.EmptyFSList"
+            },
+            "EntityMention": {
+                "_feature_types": {
+                    "entity": "_ref",
+                    "ontologyConceptArr": "_ref",
+                    "originalText": "_ref",
+                    "sofa": "_ref"
+                },
+                "_id": "org.apache.ctakes.typesystem.type.textsem.EntityMention",
+                "_subtypes": [
+                    "AnatomicalSiteMention"
+                ]
+            },
+            "Event": {
+                "_feature_types": {
+                    "mentions": "_ref",
+                    "ontologyConcept": "_ref",
+                    "properties": "_ref"
+                },
+                "_id": "org.apache.ctakes.typesystem.type.refsem.Event"
+            },
+            "EventMention": {
+                "_feature_types": {
+                    "event": "_ref",
+                    "ontologyConceptArr": "_ref",
+                    "originalText": "_ref",
+                    "sofa": "_ref"
+                },
+                "_id": "org.apache.ctakes.typesystem.type.textsem.EventMention",
+                "_subtypes": [
+                    "SignSymptomMention"
+                ]
+            },
+            "EventProperties": {
+                "_id": "org.apache.ctakes.typesystem.type.refsem.EventProperties"
+            },
+            "FSArray": {
+                "_id": "uima.cas.FSArray"
+            },
+            "FSList": {
+                "_id": "uima.cas.FSList",
+                "_subtypes": [
+                    "EmptyFSList",
+                    "NonEmptyFSList"
+                ]
+            },
+            "IdentifiedAnnotation": {
+                "_feature_types": {
+                    "ontologyConceptArr": "_ref",
+                    "originalText": "_ref",
+                    "sofa": "_ref"
+                },
+                "_id": "org.apache.ctakes.typesystem.type.textsem.IdentifiedAnnotation",
+                "_subtypes": [
+                    "EntityMention",
+                    "RomanNumeralAnnotation",
+                    "EventMention"
+                ]
+            },
+            "ListBase": {
+                "_id": "uima.cas.ListBase",
+                "_subtypes": [
+                    "FSList"
+                ]
+            },
+            "LookupWindowAnnotation": {
+                "_feature_types": {
+                    "sofa": "_ref"
+                },
+                "_id": "org.apache.ctakes.typesystem.type.textspan.LookupWindowAnnotation"
+            },
+            "NonEmptyFSList": {
+                "_feature_types": {
+                    "head": "_ref",
+                    "tail": "_ref"
+                },
+                "_id": "uima.cas.NonEmptyFSList"
+            },
+            "OntologyConcept": {
+                "_id": "org.apache.ctakes.typesystem.type.refsem.OntologyConcept",
+                "_subtypes": [
+                    "UmlsConcept"
+                ]
+            },
+            "Predicate": {
+                "_feature_types": {
+                    "relations": "_ref",
+                    "sofa": "_ref"
+                },
+                "_id": "org.apache.ctakes.typesystem.type.textsem.Predicate"
+            },
+            "Relation": {
+                "_id": "org.apache.ctakes.typesystem.type.relation.Relation",
+                "_subtypes": [
+                    "SemanticRoleRelation"
+                ]
+            },
+            "RomanNumeralAnnotation": {
+                "_feature_types": {
+                    "ontologyConceptArr": "_ref",
+                    "originalText": "_ref",
+                    "sofa": "_ref"
+                },
+                "_id": "org.apache.ctakes.typesystem.type.textsem.RomanNumeralAnnotation"
+            },
+            "Segment": {
+                "_feature_types": {
+                    "sofa": "_ref"
+                },
+                "_id": "org.apache.ctakes.typesystem.type.textspan.Segment"
+            },
+            "SemanticArgument": {
+                "_feature_types": {
+                    "relation": "_ref",
+                    "sofa": "_ref"
+                },
+                "_id": "org.apache.ctakes.typesystem.type.textsem.SemanticArgument"
+            },
+            "SemanticRoleRelation": {
+                "_feature_types": {
+                    "argument": "_ref",
+                    "predicate": "_ref"
+                },
+                "_id": "org.apache.ctakes.typesystem.type.textsem.SemanticRoleRelation"
+            },
+            "Sentence": {
+                "_feature_types": {
+                    "sofa": "_ref"
+                },
+                "_id": "org.apache.ctakes.typesystem.type.textspan.Sentence"
+            },
+            "SignSymptomMention": {
+                "_feature_types": {
+                    "alleviatingFactor": "_ref",
+                    "bodyLaterality": "_ref",
+                    "bodyLocation": "_ref",
+                    "bodySide": "_ref",
+                    "course": "_ref",
+                    "duration": "_ref",
+                    "endTime": "_ref",
+                    "event": "_ref",
+                    "exacerbatingFactor": "_ref",
+                    "ontologyConceptArr": "_ref",
+                    "originalText": "_ref",
+                    "relativeTemporalContext": "_ref",
+                    "severity": "_ref",
+                    "sofa": "_ref",
+                    "startTime": "_ref"
+                },
+                "_id": "org.apache.ctakes.typesystem.type.textsem.SignSymptomMention"
+            },
+            "Sofa": {
+                "_feature_types": {
+                    "sofaArray": "_ref"
+                },
+                "_id": "uima.cas.Sofa"
+            },
+            "StringArray": {
+                "_id": "uima.cas.StringArray"
+            },
+            "SymbolToken": {
+                "_feature_types": {
+                    "lemmaEntries": "_ref",
+                    "sofa": "_ref"
+                },
+                "_id": "org.apache.ctakes.typesystem.type.syntax.SymbolToken"
+            },
+            "TOP": {
+                "_id": "uima.cas.TOP",
+                "_subtypes": [
+                    "AnnotationBase",
+                    "DocumentID",
+                    "ListBase",
+                    "Element",
+                    "EventProperties",
+                    "ArrayBase",
+                    "Relation",
+                    "Sofa",
+                    "OntologyConcept"
+                ]
+            },
+            "TerminalTreebankNode": {
+                "_feature_types": {
+                    "children": "_ref",
+                    "nodeTags": "_array",
+                    "parent": "_ref",
+                    "sofa": "_ref"
+                },
+                "_id": "org.apache.ctakes.typesystem.type.syntax.TerminalTreebankNode"
+            },
+            "TopTreebankNode": {
+                "_feature_types": {
+                    "children": "_ref",
+                    "nodeTags": "_array",
+                    "parent": "_ref",
+                    "sofa": "_ref",
+                    "terminals": "_ref"
+                },
+                "_id": "org.apache.ctakes.typesystem.type.syntax.TopTreebankNode"
+            },
+            "TreebankNode": {
+                "_feature_types": {
+                    "children": "_ref",
+                    "nodeTags": "_array",
+                    "parent": "_ref",
+                    "sofa": "_ref"
+                },
+                "_id": "org.apache.ctakes.typesystem.type.syntax.TreebankNode",
+                "_subtypes": [
+                    "TerminalTreebankNode",
+                    "TopTreebankNode"
+                ]
+            },
+            "UmlsConcept": {
+                "_id": "org.apache.ctakes.typesystem.type.refsem.UmlsConcept"
+            },
+            "WordToken": {
+                "_feature_types": {
+                    "lemmaEntries": "_ref",
+                    "sofa": "_ref"
+                },
+                "_id": "org.apache.ctakes.typesystem.type.syntax.WordToken"
+            }
+        }
+    },
+    "_referenced_fss": {
+        "1": {
+            "_type": "Sofa",
+            "mimeType": "text",
+            "sofaID": "_InitialView",
+            "sofaNum": 1,
+            "sofaString": "I+have+a+sore+throat="
+        },
+        "292": {
+            "_type": "ConllDependencyNode",
+            "begin": 0,
+            "end": 21,
+            "id": 0,
+            "sofa": 1
+        },
+        "334": {
+            "_type": "ConllDependencyNode",
+            "begin": 2,
+            "cpostag": "VB",
+            "deprel": "root",
+            "end": 6,
+            "feats": "_",
+            "form": "have",
+            "head": 292,
+            "id": 3,
+            "lemma": "have",
+            "pdeprel": "_",
+            "postag": "VB",
+            "sofa": 1
+        },
+        "362": {
+            "_type": "ConllDependencyNode",
+            "begin": 7,
+            "cpostag": "DT",
+            "deprel": "det",
+            "end": 8,
+            "feats": "_",
+            "form": "a",
+            "head": 418,
+            "id": 5,
+            "lemma": "a",
+            "pdeprel": "_",
+            "postag": "DT",
+            "sofa": 1
+        },
+        "418": {
+            "_type": "ConllDependencyNode",
+            "begin": 14,
+            "cpostag": "NN",
+            "deprel": "nn",
+            "end": 20,
+            "feats": "_",
+            "form": "throat",
+            "head": 432,
+            "id": 9,
+            "lemma": "throat",
+            "pdeprel": "_",
+            "postag": "NN",
+            "sofa": 1
+        },
+        "432": {
+            "_type": "ConllDependencyNode",
+            "begin": 20,
+            "cpostag": "SYM",
+            "deprel": "punct",
+            "end": 21,
+            "feats": "_",
+            "form": "=",
+            "head": 334,
+            "id": 10,
+            "lemma": "=",
+            "pdeprel": "_",
+            "postag": "SYM",
+            "sofa": 1
+        },
+        "448": {
+            "_type": "Predicate",
+            "begin": 2,
+            "end": 6,
+            "frameSet": "have.03",
+            "relations": 471,
+            "sofa": 1
+        },
+        "455": {
+            "_type": "SemanticArgument",
+            "begin": 0,
+            "end": 1,
+            "label": "A0",
+            "relation": 461,
+            "sofa": 1
+        },
+        "461": {
+            "_type": "SemanticRoleRelation",
+            "argument": 455,
+            "category": "A0",
+            "conditional": false,
+            "confidence": 0.0,
+            "discoveryTechnique": 0,
+            "id": 0,
+            "polarity": 0,
+            "predicate": 448,
+            "uncertainty": 0
+        },
+        "471": {
+            "_type": "NonEmptyFSList",
+            "head": 461,
+            "tail": []
+        },
+        "487": {
+            "_type": "TerminalTreebankNode",
+            "begin": 0,
+            "end": 1,
+            "headIndex": 0,
+            "index": 0,
+            "leaf": true,
+            "nodeType": "PRP",
+            "nodeValue": "I",
+            "parent": 669,
+            "sofa": 1,
+            "tokenIndex": 0
+        },
+        "500": {
+            "_type": "TerminalTreebankNode",
+            "begin": 1,
+            "end": 2,
+            "headIndex": 0,
+            "index": 1,
+            "leaf": true,
+            "nodeType": "SYM",
+            "nodeValue": "+",
+            "parent": 686,
+            "sofa": 1,
+            "tokenIndex": 1
+        },
+        "513": {
+            "_type": "TerminalTreebankNode",
+            "begin": 2,
+            "end": 6,
+            "headIndex": 0,
+            "index": 2,
+            "leaf": true,
+            "nodeType": "VB",
+            "nodeValue": "have",
+            "parent": 703,
+            "sofa": 1,
+            "tokenIndex": 2
+        },
+        "526": {
+            "_type": "TerminalTreebankNode",
+            "begin": 6,
+            "end": 7,
+            "headIndex": 0,
+            "index": 3,
+            "leaf": true,
+            "nodeType": "SYM",
+            "nodeValue": "+",
+            "parent": 720,
+            "sofa": 1,
+            "tokenIndex": 3
+        },
+        "539": {
+            "_type": "TerminalTreebankNode",
+            "begin": 7,
+            "end": 8,
+            "headIndex": 0,
+            "index": 4,
+            "leaf": true,
+            "nodeType": "DT",
+            "nodeValue": "a",
+            "parent": 720,
+            "sofa": 1,
+            "tokenIndex": 4
+        },
+        "552": {
+            "_type": "TerminalTreebankNode",
+            "begin": 8,
+            "end": 9,
+            "headIndex": 0,
+            "index": 5,
+            "leaf": true,
+            "nodeType": "SYM",
+            "nodeValue": "+",
+            "parent": 737,
+            "sofa": 1,
+            "tokenIndex": 5
+        },
+        "565": {
+            "_type": "TerminalTreebankNode",
+            "begin": 9,
+            "end": 13,
+            "headIndex": 0,
+            "index": 6,
+            "leaf": true,
+            "nodeType": "JJ",
+            "nodeValue": "sore",
+            "parent": 737,
+            "sofa": 1,
+            "tokenIndex": 6
+        },
+        "578": {
+            "_type": "TerminalTreebankNode",
+            "begin": 13,
+            "end": 14,
+            "headIndex": 0,
+            "index": 7,
+            "leaf": true,
+            "nodeType": "SYM",
+            "nodeValue": "+",
+            "parent": 737,
+            "sofa": 1,
+            "tokenIndex": 7
+        },
+        "591": {
+            "_type": "TerminalTreebankNode",
+            "begin": 14,
+            "end": 20,
+            "headIndex": 0,
+            "index": 8,
+            "leaf": true,
+            "nodeType": "NN",
+            "nodeValue": "throat",
+            "parent": 737,
+            "sofa": 1,
+            "tokenIndex": 8
+        },
+        "604": {
+            "_type": "TerminalTreebankNode",
+            "begin": 20,
+            "end": 21,
+            "headIndex": 0,
+            "index": 9,
+            "leaf": true,
+            "nodeType": "SYM",
+            "nodeValue": "=",
+            "parent": 737,
+            "sofa": 1,
+            "tokenIndex": 9
+        },
+        "617": {
+            "_type": "TopTreebankNode",
+            "begin": 0,
+            "children": [
+                635
+            ],
+            "end": 21,
+            "headIndex": 0,
+            "leaf": false,
+            "nodeTags": [],
+            "nodeType": "TOP",
+            "sofa": 1,
+            "terminals": [
+                487,
+                500,
+                513,
+                526,
+                539,
+                552,
+                565,
+                578,
+                591,
+                604
+            ],
+            "treebankParse": "(TOP (FRAG (S (NP-SBJ (PRP I))(VP (SYM +)(VP (VB have)(NP (SYM +)(DT a)))))(NP (SYM +)(JJ sore)(SYM +)(NN throat)(SYM =))))"
+        },
+        "635": {
+            "_type": "TreebankNode",
+            "begin": 0,
+            "children": [
+                652,
+                737
+            ],
+            "end": 21,
+            "headIndex": 2,
+            "leaf": false,
+            "nodeTags": [],
+            "nodeType": "FRAG",
+            "parent": 617,
+            "sofa": 1
+        },
+        "652": {
+            "_type": "TreebankNode",
+            "begin": 0,
+            "children": [
+                669,
+                686
+            ],
+            "end": 8,
+            "headIndex": 2,
+            "leaf": false,
+            "nodeTags": [],
+            "nodeType": "S",
+            "parent": 635,
+            "sofa": 1
+        },
+        "669": {
+            "_type": "TreebankNode",
+            "begin": 0,
+            "children": [
+                487
+            ],
+            "end": 1,
+            "headIndex": 0,
+            "leaf": false,
+            "nodeTags": [
+                "SBJ"
+            ],
+            "nodeType": "NP",
+            "parent": 652,
+            "sofa": 1
+        },
+        "686": {
+            "_type": "TreebankNode",
+            "begin": 1,
+            "children": [
+                500,
+                703
+            ],
+            "end": 8,
+            "headIndex": 2,
+            "leaf": false,
+            "nodeTags": [],
+            "nodeType": "VP",
+            "parent": 652,
+            "sofa": 1
+        },
+        "703": {
+            "_type": "TreebankNode",
+            "begin": 2,
+            "children": [
+                513,
+                720
+            ],
+            "end": 8,
+            "headIndex": 2,
+            "leaf": false,
+            "nodeTags": [],
+            "nodeType": "VP",
+            "parent": 686,
+            "sofa": 1
+        },
+        "720": {
+            "_type": "TreebankNode",
+            "begin": 6,
+            "children": [
+                526,
+                539
+            ],
+            "end": 8,
+            "headIndex": 4,
+            "leaf": false,
+            "nodeTags": [],
+            "nodeType": "NP",
+            "parent": 703,
+            "sofa": 1
+        },
+        "737": {
+            "_type": "TreebankNode",
+            "begin": 8,
+            "children": [
+                552,
+                565,
+                578,
+                591,
+                604
+            ],
+            "end": 21,
+            "headIndex": 8,
+            "leaf": false,
+            "nodeTags": [],
+            "nodeType": "NP",
+            "parent": 635,
+            "sofa": 1
+        },
+        "761": {
+            "_type": "EventProperties",
+            "docTimeRel": "AFTER",
+            "polarity": 0
+        },
+        "770": {
+            "_type": "Event",
+            "conditional": false,
+            "confidence": 0.5232571363449097,
+            "discoveryTechnique": 0,
+            "generic": false,
+            "historyOf": 0,
+            "id": 0,
+            "polarity": 0,
+            "properties": 761,
+            "uncertainty": 0
+        }
+    },
+    "_views": {
+        "_InitialView": {
+            "AnatomicalSiteMention": [
+                {
+                    "begin": 14,
+                    "conditional": false,
+                    "confidence": 0.0,
+                    "discoveryTechnique": 1,
+                    "end": 20,
+                    "generic": false,
+                    "historyOf": 0,
+                    "id": 0,
+                    "ontologyConceptArr": [
+                        {
+                            "_type": "UmlsConcept",
+                            "code": "54066008",
+                            "codingScheme": "SNOMEDCT_US",
+                            "cui": "C0031354",
+                            "disambiguated": false,
+                            "preferredText": "Pharyngeal structure",
+                            "score": 0.0,
+                            "tui": "T023"
+                        }
+                    ],
+                    "polarity": 1,
+                    "sofa": 1,
+                    "typeID": 6,
+                    "uncertainty": 0
+                }
+            ],
+            "Chunk": [
+                {
+                    "begin": 0,
+                    "chunkType": "NP",
+                    "end": 1,
+                    "sofa": 1
+                },
+                {
+                    "begin": 1,
+                    "chunkType": "O",
+                    "end": 2,
+                    "sofa": 1
+                },
+                {
+                    "begin": 2,
+                    "chunkType": "VP",
+                    "end": 6,
+                    "sofa": 1
+                },
+                {
+                    "begin": 6,
+                    "chunkType": "O",
+                    "end": 7,
+                    "sofa": 1
+                },
+                {
+                    "begin": 7,
+                    "chunkType": "NP",
+                    "end": 8,
+                    "sofa": 1
+                },
+                {
+                    "begin": 8,
+                    "chunkType": "O",
+                    "end": 9,
+                    "sofa": 1
+                },
+                {
+                    "begin": 9,
+                    "chunkType": "NP",
+                    "end": 13,
+                    "sofa": 1
+                },
+                {
+                    "begin": 13,
+                    "chunkType": "O",
+                    "end": 14,
+                    "sofa": 1
+                },
+                {
+                    "begin": 14,
+                    "chunkType": "NP",
+                    "end": 20,
+                    "sofa": 1
+                }
+            ],
+            "ConllDependencyNode": [
+                292,
+                {
+                    "begin": 0,
+                    "cpostag": "PRP",
+                    "deprel": "nsubj",
+                    "end": 1,
+                    "feats": "_",
+                    "form": "I",
+                    "head": 334,
+                    "id": 1,
+                    "lemma": "i",
+                    "pdeprel": "_",
+                    "postag": "PRP",
+                    "sofa": 1
+                },
+                {
+                    "begin": 1,
+                    "cpostag": "SYM",
+                    "deprel": "punct",
+                    "end": 2,
+                    "feats": "_",
+                    "form": "+",
+                    "head": 334,
+                    "id": 2,
+                    "lemma": "+",
+                    "pdeprel": "_",
+                    "postag": "SYM",
+                    "sofa": 1
+                },
+                334,
+                {
+                    "begin": 6,
+                    "cpostag": "SYM",
+                    "deprel": "punct",
+                    "end": 7,
+                    "feats": "_",
+                    "form": "+",
+                    "head": 334,
+                    "id": 4,
+                    "lemma": "+",
+                    "pdeprel": "_",
+                    "postag": "SYM",
+                    "sofa": 1
+                },
+                362,
+                {
+                    "begin": 8,
+                    "cpostag": "SYM",
+                    "deprel": "punct",
+                    "end": 9,
+                    "feats": "_",
+                    "form": "+",
+                    "head": 362,
+                    "id": 6,
+                    "lemma": "+",
+                    "pdeprel": "_",
+                    "postag": "SYM",
+                    "sofa": 1
+                },
+                {
+                    "begin": 9,
+                    "cpostag": "JJ",
+                    "deprel": "amod",
+                    "end": 13,
+                    "feats": "_",
+                    "form": "sore",
+                    "head": 418,
+                    "id": 7,
+                    "lemma": "sore",
+                    "pdeprel": "_",
+                    "postag": "JJ",
+                    "sofa": 1
+                },
+                {
+                    "begin": 13,
+                    "cpostag": "SYM",
+                    "deprel": "punct",
+                    "end": 14,
+                    "feats": "_",
+                    "form": "+",
+                    "head": 418,
+                    "id": 8,
+                    "lemma": "+",
+                    "pdeprel": "_",
+                    "postag": "SYM",
+                    "sofa": 1
+                },
+                418,
+                432
+            ],
+            "DocumentAnnotation": [
+                {
+                    "begin": 0,
+                    "end": 21,
+                    "language": "x-unspecified",
+                    "sofa": 1
+                }
+            ],
+            "DocumentID": [
+                {
+                    "documentID": "UnknownDocument3"
+                }
+            ],
+            "Event": [
+                770
+            ],
+            "EventProperties": [
+                761
+            ],
+            "LookupWindowAnnotation": [
+                {
+                    "begin": 0,
+                    "end": 1,
+                    "sofa": 1
+                },
+                {
+                    "begin": 7,
+                    "end": 8,
+                    "sofa": 1
+                },
+                {
+                    "begin": 9,
+                    "end": 13,
+                    "sofa": 1
+                },
+                {
+                    "begin": 14,
+                    "end": 20,
+                    "sofa": 1
+                }
+            ],
+            "NonEmptyFSList": [
+                471
+            ],
+            "Predicate": [
+                448
+            ],
+            "RomanNumeralAnnotation": [
+                {
+                    "begin": 0,
+                    "conditional": false,
+                    "confidence": 0.0,
+                    "discoveryTechnique": 0,
+                    "end": 1,
+                    "generic": false,
+                    "historyOf": 0,
+                    "id": 0,
+                    "polarity": 0,
+                    "sofa": 1,
+                    "typeID": 0,
+                    "uncertainty": 0
+                }
+            ],
+            "Segment": [
+                {
+                    "begin": 0,
+                    "end": 21,
+                    "id": "SIMPLE_SEGMENT",
+                    "sofa": 1
+                }
+            ],
+            "SemanticArgument": [
+                455
+            ],
+            "SemanticRoleRelation": [
+                461
+            ],
+            "Sentence": [
+                {
+                    "begin": 0,
+                    "end": 21,
+                    "sentenceNumber": 0,
+                    "sofa": 1
+                }
+            ],
+            "SignSymptomMention": [
+                {
+                    "begin": 9,
+                    "conditional": false,
+                    "confidence": 0.0,
+                    "discoveryTechnique": 1,
+                    "end": 13,
+                    "event": 770,
+                    "generic": false,
+                    "historyOf": 0,
+                    "id": 0,
+                    "ontologyConceptArr": [
+                        {
+                            "_type": "UmlsConcept",
+                            "code": "247348008",
+                            "codingScheme": "SNOMEDCT_US",
+                            "cui": "C0234233",
+                            "disambiguated": false,
+                            "preferredText": "Sore to touch",
+                            "score": 0.0,
+                            "tui": "T184"
+                        },
+                        {
+                            "_type": "UmlsConcept",
+                            "code": "71393004",
+                            "codingScheme": "SNOMEDCT_US",
+                            "cui": "C0234233",
+                            "disambiguated": false,
+                            "preferredText": "Sore to touch",
+                            "score": 0.0,
+                            "tui": "T184"
+                        }
+                    ],
+                    "polarity": 1,
+                    "sofa": 1,
+                    "typeID": 3,
+                    "uncertainty": 0
+                }
+            ],
+            "SymbolToken": [
+                {
+                    "begin": 1,
+                    "end": 2,
+                    "partOfSpeech": "SYM",
+                    "sofa": 1,
+                    "tokenNumber": 1
+                },
+                {
+                    "begin": 6,
+                    "end": 7,
+                    "partOfSpeech": "SYM",
+                    "sofa": 1,
+                    "tokenNumber": 3
+                },
+                {
+                    "begin": 8,
+                    "end": 9,
+                    "partOfSpeech": "SYM",
+                    "sofa": 1,
+                    "tokenNumber": 5
+                },
+                {
+                    "begin": 13,
+                    "end": 14,
+                    "partOfSpeech": "SYM",
+                    "sofa": 1,
+                    "tokenNumber": 7
+                },
+                {
+                    "begin": 20,
+                    "end": 21,
+                    "partOfSpeech": "SYM",
+                    "sofa": 1,
+                    "tokenNumber": 9
+                }
+            ],
+            "TerminalTreebankNode": [
+                487,
+                500,
+                513,
+                526,
+                539,
+                552,
+                565,
+                578,
+                591,
+                604
+            ],
+            "TopTreebankNode": [
+                617
+            ],
+            "TreebankNode": [
+                635,
+                652,
+                669,
+                686,
+                703,
+                720,
+                737
+            ],
+            "WordToken": [
+                {
+                    "begin": 0,
+                    "capitalization": 3,
+                    "end": 1,
+                    "numPosition": 0,
+                    "partOfSpeech": "PRP",
+                    "sofa": 1,
+                    "tokenNumber": 0
+                },
+                {
+                    "begin": 2,
+                    "capitalization": 0,
+                    "end": 6,
+                    "numPosition": 0,
+                    "partOfSpeech": "VB",
+                    "sofa": 1,
+                    "tokenNumber": 2
+                },
+                {
+                    "begin": 7,
+                    "capitalization": 0,
+                    "end": 8,
+                    "numPosition": 0,
+                    "partOfSpeech": "DT",
+                    "sofa": 1,
+                    "tokenNumber": 4
+                },
+                {
+                    "begin": 9,
+                    "capitalization": 0,
+                    "end": 13,
+                    "numPosition": 0,
+                    "partOfSpeech": "JJ",
+                    "sofa": 1,
+                    "tokenNumber": 6
+                },
+                {
+                    "begin": 14,
+                    "capitalization": 0,
+                    "end": 20,
+                    "numPosition": 0,
+                    "partOfSpeech": "NN",
+                    "sofa": 1,
+                    "tokenNumber": 8
+                }
+            ]
+        }
+    }
+}
