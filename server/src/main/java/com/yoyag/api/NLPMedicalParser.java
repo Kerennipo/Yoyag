@@ -43,9 +43,9 @@ public class NLPMedicalParser implements Parser {
 	 */
 	@Override
 	public void parseInput(Input in) {
-		// TODO Auto-generated method stub
+		NewInput nIn = (NewInput)in;
 		Map<String,List<String>>  resultMap = null;
-		Map<String, Object> data = in.getData();
+		Map<String, Object> data = nIn.getData();
 		String analysisText = data.get("analysisText").toString();
         LOGGER.info("###\n" + analysisText + "###\n");
         if (analysisText != null && analysisText.trim().length() > 0) {
@@ -62,8 +62,8 @@ public class NLPMedicalParser implements Parser {
         }
         NLPOutput out = new NLPOutput();
         out.setContent(resultMap);
-        out.setTimeStamp(in.getTimestamp());
-        out.setUserID(in.getUserID());
+        out.setTimeStamp(nIn.getTimestamp());
+        out.setUserID(nIn.getUserID());
         new MedicalSummaryHandler().handle(out);
 	}
 	

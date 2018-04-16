@@ -73,16 +73,25 @@ public class RestAPIController {
     }
     
 	@RequestMapping(value = "/post", method = RequestMethod.POST)
-    public ResponseEntity<String> post(@RequestBody Input input) throws ServletException {
+    public ResponseEntity<String> post(@RequestBody NewInput input) throws ServletException {
 		Parser p = getParserForInput(input);
 		p.parseInput(input);
 		return new ResponseEntity<String>(HttpStatus.NO_CONTENT);
     }
 	
-	private Parser getParserForInput(Input input) throws ServletException {
+	private Parser getParserForInput(NewInput input) throws ServletException {
 		return new SimpleMedicalParser();
 //		return new NLPMedicalParser();
 	}
+	
+	@RequestMapping(value = "/update", method = RequestMethod.POST)
+	@ResponseBody
+	public ResponseEntity<String> update(@RequestBody UpdateInput input) {
+		Parser updateParser = new UpdateParser();
+		updateParser.parseInput(input);
+		return new ResponseEntity<String>(HttpStatus.NO_CONTENT);
+	}
+	
 //	@RequestMapping(value = "/analyze", method = RequestMethod.POST)
 //    @ResponseBody
 //    public Map<String, Map<String, List<String>>> getAnalyzedJSON(@RequestBody String analysisText,
@@ -144,6 +153,7 @@ public class RestAPIController {
 //            return resultMap;
 //        }
 //    }
+	
     
     @RequestMapping(value="/analyzeNew", method = RequestMethod.POST)
     @ResponseBody

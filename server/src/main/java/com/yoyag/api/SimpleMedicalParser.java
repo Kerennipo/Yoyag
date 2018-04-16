@@ -16,10 +16,11 @@ public class SimpleMedicalParser implements Parser {
 	 */
 	@Override
 	public void parseInput(Input in) {
+		NewInput nIn = (NewInput)in;
 		FreetextOutput out = new FreetextOutput();
-		out.setContent(generateContentFromInput(in));
-		out.setUserID(in.getUserID());
-		out.setTimestamp(in.getTimestamp());
+		out.setContent(generateContentFromInput(nIn));
+		out.setUserID(nIn.getUserID());
+		out.setTimestamp(nIn.getTimestamp());
 		new MedicalSummaryHandler().handle(out);
 	}
 	/*
@@ -27,7 +28,7 @@ public class SimpleMedicalParser implements Parser {
 	 * @param in
 	 * @return
 	 */
-	private String generateContentFromInput(Input in) {
+	private String generateContentFromInput(NewInput in) {
 		Map<String, Object> data = in.getData();
 		StringBuilder content = new StringBuilder();
 		content.append("The user complained at " + in.getTimestamp() + " about the following: ");
