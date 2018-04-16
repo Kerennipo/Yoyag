@@ -1,0 +1,261 @@
+﻿@model FinalProject.Models.User
+
+@{
+    ViewBag.Title = "Create";
+}
+
+@Scripts.Render("~/bundles/jquery")
+
+<title>Send Symptoms</title>
+
+<h4>Please fill in your symptoms:</h4>
+
+<form action="/Patients/Done" method="POST" name="myForm" id="myForm">
+    <div class="form-horizontal">
+        <div class="form-group">
+            <label class="control-label col-md-2" for="bodyTempreture">Body Tempreture:</label>
+            <div class="col-md-10">
+                <input class="form-control" type="text" name="bodyTempreture" id="bodyTempreture">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2" for="headAche">Head Ache:</label>
+            <div class="col-md-10">
+                <input type="checkbox" name="headAche" id="headAche" value="true">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2" for="stomachAche">Stomach Ache:</label>
+            <div class="col-md-10">
+                <input type="checkbox" name="stomachAche" id="stomachAche" value="true">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2" for="soreThroat">Sore Throat:</label>
+            <div class="col-md-10">
+                <input type="checkbox" name="soreThroat" id="soreThroat" value="true">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2" for="earsAche">Ears Ache:</label>
+            <div class="col-md-10">
+                <input type="checkbox" name="earsAche" id="earsAche" value="true">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2" for="urinalPain">Urinal Pain:</label>
+            <div class="col-md-10">
+                <input type="checkbox" name="urinalPain" id="urinalPain" value="true">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2" for="diarriah">Diarriah:</label>
+            <div class="col-md-10">
+                <input type="checkbox" name="diarriah" id="diarriah" value="true">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2" for="vomiting">Vomiting:</label>
+            <div class="col-md-10">
+                <input type="checkbox" name="vomiting" id="vomiting" value="true">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2" for="pregnancy">Pregnancy:</label>
+            <div class="col-md-10">
+                <input type="checkbox" name="pregnancy" id="pregnancy" value="true">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2" for="shortnessOfBreath">Shortness of Breath:</label>
+            <div class="col-md-10">
+                <input type="checkbox" name="shortnessOfBreath" id="shortnessOfBreath" value="true">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2" for="runningNose">Running Nose:</label>
+            <div class="col-md-10">
+                <input type="checkbox" name="runningNose" id="runningNose" value="true">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2" for="soreMuscles">Sore Muscles:</label>
+            <div class="col-md-10">
+                <input type="checkbox" name="soreMuscles" id="soreMuscles" value="true">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2" for="chestPain">Chest Pain:</label>
+            <div class="col-md-10">
+                <input type="checkbox" name="chestPain" id="chestPain" value="true">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2" for="fatigue">Fatigue:</label>
+            <div class="col-md-10">
+                <input type="checkbox" name="fatigue" id="fatigue" value="true">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2" for="weightLoss">Weight Loss:</label>
+            <div class="col-md-10">
+                <input type="checkbox" name="weightLoss" id="weightLoss" value="true">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2" for="dizzyness">Dizzyness:</label>
+            <div class="col-md-10">
+                <input type="checkbox" name="dizzyness" id="dizzyness" value="true">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2" for="lossOfApetite">Loss Of Apetite:</label>
+            <div class="col-md-10">
+                <input type="checkbox" name="lossOfApetite" id="lossOfApetite" value=1>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input class="btn btn-default" value="Submit" type="submit">
+            </div>
+        </div>
+
+    </div>
+
+</form>
+
+
+
+<script>
+
+    (function ($) {
+        $.fn.serializeFormJSON = function () {
+
+            var o = {};
+            var a = this.serializeArray();
+            $.each(a, function () {
+                if (o[this.name]) {
+                    if (!o[this.name].push) {
+                        o[this.name] = [o[this.name]];
+                    }
+                    o[this.name].push(this.value || '');
+                } else {
+                    o[this.name] = this.value || '';
+                }
+            });
+            return o;
+        };
+    });
+
+
+    function testJSON() {
+        var formData = JSON.stringify($("#myForm").serializeArray());
+        alert(formData);
+    }
+
+    function test2JSON() {
+        var userID = '@Model.userID';
+        var date = new Date();
+        var currentDate = date.toLocaleString();
+        var token = "ABRAKADABR@1237";
+        var formData = $("#myForm").serializeArray();
+        var formDataObject = {};
+        $.each(formData, function () {
+            if (formDataObject[this.name]) {
+                if (!formDataObject[this.name].push) {
+                    formDataObject[this.name] = [formDataObject[this.name]];
+                }
+                formDataObject[this.name].push(this.value || '');
+            } else {
+                formDataObject[this.name] = this.value || '';
+            }
+        });
+        var postData = { "token": token, "userID": userID, "timestamp": currentDate, "data": formDataObject };
+        alert(JSON.stringify(postData));
+    }
+
+    function submitform() {
+        var userID = '@Model.userID';
+        var date = new Date();
+        var currentDate = date.toLocaleString();
+        var token = "ABRAKADABR@1237";
+        var formData = $("#myForm").serializeArray();
+        var formDataObject = {};
+        $.each(formData, function () {
+            if (formDataObject[this.name]) {
+                if (!formDataObject[this.name].push) {
+                    formDataObject[this.name] = [formDataObject[this.name]];
+                }
+                formDataObject[this.name].push(this.value || '');
+            } else {
+                formDataObject[this.name] = this.value || '';
+            }
+        });
+        var postData = { "token": token, "userID": userID, "timestamp": currentDate, "data": formDataObject };
+        var Data= JSON.stringify(postData);
+        $.ajax({
+            type: "POST",
+            url: "http://10.10.192.78:8888/post",
+            data: Data,
+            success: function (data) {
+                console.log('Submission was successful.');
+                console.log(data);
+            },
+            error: function (data) {
+                console.log('An error occurred.');
+                console.log(data);
+            },
+            dataType: "json",
+            contentType: "application/json"
+        });
+
+
+
+        }
+
+        $('#myForm').submit(function (e) {
+
+            e.preventDefault();
+
+             var userID = '@Model.userID';
+        var date = new Date();
+        var currentDate = date.toLocaleString();
+        var token = "ABRAKADABR@1237";
+        var formData = $("#myForm").serializeArray();
+        var formDataObject = {};
+        $.each(formData, function () {
+            if (formDataObject[this.name]) {
+                if (!formDataObject[this.name].push) {
+                    formDataObject[this.name] = [formDataObject[this.name]];
+                }
+                formDataObject[this.name].push(this.value || '');
+            } else {
+                formDataObject[this.name] = this.value || '';
+            }
+        });
+        var postData = { "token": token, "userID": userID, "timestamp": currentDate, "data": formDataObject };
+        var Data= JSON.stringify(postData);
+
+            $.ajax({
+                type: "POST",
+                url: "http://193.106.55.122/post",
+                data: Data,
+                success: function (data) {
+                    console.log('Submission was successful.');
+                    console.log(data);
+                    window.location.href = "/yoyag/Patients/Done";
+                },
+                error: function (data) {
+                    console.log('An error occurred.');
+                    console.log(data);
+                },
+                dataType: "json",
+                contentType: "application/json"
+            });
+        });
+</script>
+
+
+
+
