@@ -128,6 +128,25 @@ namespace FinalProject.Controllers
             return RedirectToAction("Index");
         }
 
+        // GET: Account/IOSLogin
+        public JsonResult IOSLogin(String userID, String password)
+        {
+            User tempUser = db.Users
+                  .Where(u => u.userID == userID)
+                  .FirstOrDefault();
+          
+            if (tempUser != null)
+            {
+                tempUser.password = tempUser.password.Trim();
+                if (String.Equals(tempUser.password, password, StringComparison.OrdinalIgnoreCase))
+                {
+                    return Json("True", JsonRequestBehavior.AllowGet);
+                }
+            }
+            return Json("False", JsonRequestBehavior.AllowGet);
+
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
