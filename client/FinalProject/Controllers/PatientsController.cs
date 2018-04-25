@@ -12,6 +12,8 @@ namespace FinalProject.Controllers
 {
     public class PatientsController : Controller
     {
+
+
         //Message indicating that form was successfully submitted
         public ActionResult Done()
         {

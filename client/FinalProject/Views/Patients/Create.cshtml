@@ -8,7 +8,7 @@
 
 <title>Send Symptoms</title>
 
-<form action="/Patients/Done" method="POST" name="myForm" id="myForm">
+<form method="POST" name="myForm" id="myForm">
  
     <h3>Please fill in your Medical Symptoms:</h3>
             <table id="form-table" class="form-group">
@@ -117,7 +117,7 @@
 
             $.ajax({
                 type: "POST",
-                url: "http://193.106.55.122/post",
+                url: "//193.106.55.122/post",
                 data: Data,
                 success: function (data) {
                     console.log('Submission was successful.');
