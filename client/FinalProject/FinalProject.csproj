@@ -228,12 +228,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="images\background.jpg" />
+    <Content Include="images\logo.png" />
+    <Content Include="images\logo1.png" />
     <Content Include="Models\YoyagDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>YoyagDB.edmx</DependentUpon>
@@ -256,6 +257,24 @@
     <Content Include="Models\YoyagDB.edmx.diagram">
       <DependentUpon>YoyagDB.edmx</DependentUpon>
     </Content>
+    <Content Include="fonts\Lato-Black.ttf" />
+    <Content Include="fonts\Lato-BlackItalic.ttf" />
+    <Content Include="fonts\Lato-Bold.ttf" />
+    <Content Include="fonts\Lato-BoldItalic.ttf" />
+    <Content Include="fonts\Lato-Hairline.ttf" />
+    <Content Include="fonts\Lato-HairlineItalic.ttf" />
+    <Content Include="fonts\Lato-Heavy.ttf" />
+    <Content Include="fonts\Lato-HeavyItalic.ttf" />
+    <Content Include="fonts\Lato-Italic.ttf" />
+    <Content Include="fonts\Lato-Light.ttf" />
+    <Content Include="fonts\Lato-LightItalic.ttf" />
+    <Content Include="fonts\Lato-Medium.ttf" />
+    <Content Include="fonts\Lato-MediumItalic.ttf" />
+    <Content Include="fonts\Lato-Regular.ttf" />
+    <Content Include="fonts\Lato-Semibold.ttf" />
+    <Content Include="fonts\Lato-SemiboldItalic.ttf" />
+    <Content Include="fonts\Lato-Thin.ttf" />
+    <Content Include="fonts\Lato-ThinItalic.ttf" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Properties\Settings.settings">
