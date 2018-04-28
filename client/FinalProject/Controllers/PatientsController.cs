@@ -24,5 +24,10 @@ namespace FinalProject.Controllers
         {   
             return View(user);
         }
+
+        public ActionResult StringCreate()
+        {
+            return View();
+        }
     }
 }

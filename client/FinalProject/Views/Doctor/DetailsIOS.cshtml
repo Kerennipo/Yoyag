@@ -1,5 +1,4 @@
-﻿@model FinalProject.Models.Summary
-
+﻿
 @{
     ViewBag.Title = "Details";
 }
@@ -10,9 +9,9 @@
 <div id="notification">
     <h3>Patient Details</h3>
     <hr>
-    <p><b>Patient Id: </b> @Html.DisplayFor(model => model.userID)</p>
-    <p><b>Reported On: </b> @Html.DisplayFor(model => model.timeStamp)</p>
-    <p><b>Summary </b><br /> @Html.DisplayFor(model => model.content)</p>
+    <p><b>Patient Id: </b> IOS </p>
+    <p id="details-reported-on"><b>Reported On: </b>  </p>
+    <p><b>Summary </b><br /> Headache: true <br /> Stomachache: true </p>
 
     <hr />
     <h3>Diagnosis</h3>
@@ -124,4 +123,9 @@
             modal.style.display = "none";
         }
     }
+</script>
+<script>
+    var date = new Date();
+    var currentDate = date.toLocaleString();
+    document.getElementById("details-reported-on").innerHTML = "<b>Reported On: </b>  " + currentDate;
 </script>
