@@ -37,8 +37,8 @@ public class RestAPIController {
     }
 	
 	private Parser getParserForInput(NewInput input) throws ServletException {
-		return new SimpleMedicalParser();
-//		return new NLPMedicalParser();
+//		return new SimpleMedicalParser();
+		return new NLPMedicalParser();
 	}
 	
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
