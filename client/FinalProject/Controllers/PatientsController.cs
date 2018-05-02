@@ -12,6 +12,8 @@ namespace FinalProject.Controllers
 {
     public class PatientsController : Controller
     {
+
+
         //Message indicating that form was successfully submitted
         public ActionResult Done()
         {
@@ -21,6 +23,11 @@ namespace FinalProject.Controllers
         public ActionResult Create(User user)
         {   
             return View(user);
+        }
+
+        public ActionResult StringCreate()
+        {
+            return View();
         }
     }
 }

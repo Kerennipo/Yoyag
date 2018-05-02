@@ -38,6 +38,11 @@ namespace FinalProject.Controllers
             return View(patient);
         }
 
+        // GET: Doctor/Details/5
+        public ActionResult DetailsIOS(int? id)
+        {
+            return View();
+        }
 
         // GET: Patients/Delete/5
         public ActionResult Delete(int? id)
