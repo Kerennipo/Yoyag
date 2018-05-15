@@ -3,8 +3,13 @@
  */
 package com.yoyag.api;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
 import javax.annotation.PostConstruct;
 import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
 
 import org.apache.log4j.Logger;
 import org.springframework.http.HttpStatus;
@@ -30,7 +35,21 @@ public class RestAPIController {
     }
     
 	@RequestMapping(value = "/post", method = RequestMethod.POST)
-    public ResponseEntity<String> post(@RequestBody NewInput input) throws ServletException {
+    public ResponseEntity<String> post(@RequestBody NewInput input, HttpServletRequest request) throws ServletException {
+		List<String> ips = new ArrayList<String>();
+		ips.add(request.getRemoteAddr());
+		ips.add(request.getHeader("X-FORWARDED-FOR"));
+		Object data = input.getData().get("data");
+		try {
+			Map<String, Object> mapData;
+			if (data instanceof Map<?, ?>)
+				mapData = (Map<String, Object>)data;
+			else
+				throw new AssertionError("data not instance of Map<?, ?>");
+			mapData.put("ips", ips);
+		} catch (Exception e) {
+			LOGGER.info("Could not add ips to input object");
+		}
 		Parser p = getParserForInput(input);
 		p.parseInput(input);
 		return new ResponseEntity<String>(HttpStatus.NO_CONTENT);

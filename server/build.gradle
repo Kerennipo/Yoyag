@@ -40,3 +40,7 @@ dependencies {
     compile group: 'org.apache.uima', name: 'uimaj-json', version: '2.10.2'
     testCompile group: 'org.hsqldb', name: 'hsqldb', version: '2.3.4'
 }
+
+springBoot {
+    mainClass = 'com.yoyag.api.MainApplication'
+}
