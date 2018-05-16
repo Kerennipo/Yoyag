@@ -37,16 +37,22 @@ public class RestAPIController {
 	@RequestMapping(value = "/post", method = RequestMethod.POST)
     public ResponseEntity<String> post(@RequestBody NewInput input, HttpServletRequest request) throws ServletException {
 		List<String> ips = new ArrayList<String>();
-		ips.add(request.getRemoteAddr());
-		ips.add(request.getHeader("X-FORWARDED-FOR"));
-		Object data = input.getData().get("data");
 		try {
+			ips.add(request.getRemoteAddr());
+			ips.add(request.getHeader("X-FORWARDED-FOR"));
+		} catch (Exception e) {
+			LOGGER.error("Got error while adding ips");
+			LOGGER.error(e);
+		}
+		try {
+			Object data = input.getData().get("data");
 			Map<String, Object> mapData;
 			mapData = (Map<String, Object>)data;
 			mapData.put("ips", ips);
 			LOGGER.info("IPs=" + ips);
 		} catch (Exception e) {
-			LOGGER.info("Could not add ips to input object");
+			LOGGER.error("Could not add ips to input object");
+			LOGGER.error(e);
 		}
 		Parser p = getParserForInput(input);
 		p.parseInput(input);
