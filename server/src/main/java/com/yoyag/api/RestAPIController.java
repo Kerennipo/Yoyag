@@ -42,11 +42,9 @@ public class RestAPIController {
 		Object data = input.getData().get("data");
 		try {
 			Map<String, Object> mapData;
-			if (data instanceof Map<?, ?>)
-				mapData = (Map<String, Object>)data;
-			else
-				throw new AssertionError("data not instance of Map<?, ?>");
+			mapData = (Map<String, Object>)data;
 			mapData.put("ips", ips);
+			LOGGER.info("IPs=" + ips);
 		} catch (Exception e) {
 			LOGGER.info("Could not add ips to input object");
 		}
