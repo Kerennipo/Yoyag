@@ -13,7 +13,7 @@
         <h3>Please write your symptoms here: </h3>
 
         <div class="form-group">
-            <textarea name="name" id="text-area" class="scrollabletextbox" type="text" value="" name="note"></textarea>
+            <textarea name="name" id="text-area" class="scrollabletextbox" type="text" value="" ></textarea>
         </div>
 
         <div class="form-group">
@@ -45,12 +45,12 @@
 
             $.ajax({
                 type: "POST",
-                url: "//193.106.55.122/post",
+                url: "//127.0.0.1:8080/post",
                 data: Data,
                 success: function (data) {
                     console.log('Submission was successful.');
                     console.log(data);
-                    window.location.href = "/yoyag/Patients/Done";
+                    window.location.href = "/Patients/Done";
                 },
                 error: function (data) {
                     console.log('An error occurred.');
