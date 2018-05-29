@@ -47,4 +47,11 @@ public class FreetextOutput implements Output {
 	public void setUserID(String userID) {
 		this.userID = userID;
 	}
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "FreetextOutput [timeStamp=" + timeStamp + ", content=" + content + ", userID=" + userID + "]";
+	}
 }

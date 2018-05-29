@@ -305,7 +305,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Patients\Create.cshtml" />
     <Content Include="Views\Doctor\Delete.cshtml" />
-    <Content Include="Views\Doctor\DetailsBackup.cshtml" />
+    <Content Include="Views\Doctor\Details.cshtml" />
     <Content Include="Views\Doctor\Index.cshtml" />
     <Content Include="Views\Patients\Done.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
@@ -316,7 +316,6 @@
     <Content Include="Views\Account\Index.cshtml" />
     <Content Include="Views\Doctor\Done.cshtml" />
     <Content Include="Views\Patients\StringCreate.cshtml" />
-    <Content Include="Views\Doctor\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

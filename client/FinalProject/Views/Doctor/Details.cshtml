@@ -1,4 +1,5 @@
-﻿
+﻿@model FinalProject.Models.Summary
+
 @{
     ViewBag.Title = "Details";
 }
@@ -9,14 +10,13 @@
 <div id="notification">
     <h3>Patient Details</h3>
     <hr>
-    <p><b>Patient Id: </b> Patient6 </p>
-    <p id="details-reported-on"><b>Reported On: </b>  </p>
-    <p><b>Summary </b><br /> The patient reported the following symptoms:<br />
-    Headache, Vomitting, Weakness, Low Tempreture and stomachache. </p>
+    <p><b>Patient Id: </b> @Html.DisplayFor(model => model.userID)</p>
+    <p><b>Reported On: </b> @Html.DisplayFor(model => model.timeStamp)</p>
+    <p><b>Summary </b><br /> @Html.DisplayFor(model => model.content)</p>
 
     <hr />
     <h3>Diagnosis</h3>
-    <form action="/yoyag/Doctor/Done" method="POST" name="myForm" id="myForm">
+    <form action="/Doctor/Done" method="POST" name="myForm" id="myForm">
         <div class="form-group">
             <select id="Diagnosis">
                 <option value="Diabetes">Diabetes</option>
@@ -31,7 +31,6 @@
                 <option value="Nail fungus">Nail fungus</option>
                 <option value="Urinary tract infection">Urinary tract infection</option>
                 <option value="Allergic response">Allergic response</option>
-                <option value="Viral Virus">Viral Virus</option>
             </select>
             <br />
             <input class="btn btn-default" value="Submit" type="submit">
@@ -85,10 +84,10 @@
                 ['Diabetes', 21],
                 ['Back pain', 40],
                 ['Anxiety', 120],
-                ['Viral Virus', 160],
+                ['Obesity', 160],
                 ['Respiratory problems', 77],
                 ['Pain in joint', 56],
-                ['Pregnancy', 136],
+                ['Depressive disorder', 136],
                 ['Bronchitis', 23],
                 ['Asthma', 79],
                 ['Nail fungus', 12],
@@ -126,8 +125,37 @@
         }
     }
 </script>
+
 <script>
-    var date = new Date();
-    var currentDate = date.toLocaleString();
-    document.getElementById("details-reported-on").innerHTML = "<b>Reported On: </b>  " + currentDate;
-</script>
+
+    $('#myForm').submit(function (e) {
+
+            e.preventDefault();
+
+        var userID = '@Model.userID';
+        var token = "ABRAKADABR@1237";
+        var formData = document.getElementById("Diagnosis").value;
+        var postData = { "token": token, "userID": userID, "diagnosis": formData };
+
+        var Data= JSON.stringify(postData);
+        console.log(Data);
+
+            $.ajax({
+                type: "POST",
+                url: "//127.0.0.1:8080/update",
+                data: Data,
+                success: function (data) {
+                    console.log('Submission was successful.');
+                    console.log(data);
+                   // window.location.href = "/Patients/Done";
+                },
+                error: function (data) {
+                    console.log('An error occurred.');
+                    console.log(data);
+                },
+                dataType: "json",
+                contentType: "application/json"
+            });
+    });
+
+    </script>

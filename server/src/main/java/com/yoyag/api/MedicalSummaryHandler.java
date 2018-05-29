@@ -17,6 +17,7 @@ public class MedicalSummaryHandler implements SummaryHandler {
 	@Override
 	public void handle(Output out) {
 		String uri = getUri(out);
+		System.out.println("Abour to send out='" + out.toString() + "' to uri='" + uri + "'");
 		RestTemplate restTemplate = new RestTemplate();
 		String result = restTemplate.postForObject(uri, out, String.class);
 		System.out.println(result);
@@ -24,6 +25,6 @@ public class MedicalSummaryHandler implements SummaryHandler {
 	}
 	
 	private String getUri(Output out) {
-		return "http://db.cs.colman.ac.il/yoyag/Doctor/getSummary";
+		return "http://localhost:2115/Doctor/getSummary";
 	}
 }
