@@ -39,4 +39,5 @@ dependencies {
     compile group: 'org.apache.ctakes', name: 'ctakes-temporal-res', version: '4.0.0'
     compile group: 'org.apache.uima', name: 'uimaj-json', version: '2.10.2'
     testCompile group: 'org.hsqldb', name: 'hsqldb', version: '2.3.4'
+    compile 'com.maxmind.geoip2:geoip2:2.12.0'
 }

@@ -17,10 +17,10 @@ public class MedicalSummaryHandler implements SummaryHandler {
 	@Override
 	public void handle(Output out) {
 		String uri = getUri(out);
+//		System.out.println("Will post output='" + out + "' to '" + uri + "'");
 		RestTemplate restTemplate = new RestTemplate();
 		String result = restTemplate.postForObject(uri, out, String.class);
-		System.out.println(result);
-		//System.out.println("Will post to " + uri);
+//		System.out.println(result);
 	}
 	
 	private String getUri(Output out) {
