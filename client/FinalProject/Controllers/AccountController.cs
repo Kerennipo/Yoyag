@@ -43,7 +43,7 @@ namespace FinalProject.Controllers
             }
             else
             {
-                return RedirectToAction("Create", "Patients", tempUser);
+                return RedirectToAction("StringCreate", "Patients", tempUser);
 
             }
         }

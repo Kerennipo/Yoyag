@@ -1,11 +1,19 @@
-﻿
-<div id="notification">
-    <form id="login-form" method="post">
+﻿@model FinalProject.Models.User
 
-        <h3>Please write your symptoms here:</h3>
+@{
+    ViewBag.Title = "StringCreate";
+}
+
+@Scripts.Render("~/bundles/jquery")
+
+
+<div id="notification">
+    <form id="patient-form" method="POST">
+
+        <h3>Please write your symptoms here: </h3>
 
         <div class="form-group">
-            <textarea class="scrollabletextbox" type="text" value="" name="note"></textarea>
+            <textarea name="name" id="text-area" class="scrollabletextbox" type="text" value="" ></textarea>
         </div>
 
         <div class="form-group">
@@ -18,5 +26,39 @@
 
 
 
+<script>
 
+    $('#patient-form').submit(function (e) {
+
+            e.preventDefault();
+
+        var userID = '@Model.userID';
+        var date = new Date();
+        var currentDate = date.toLocaleString();
+        var token = "ABRAKADABR@1237";
+        var formData = document.getElementById("text-area").value;
+        var formDataObject = { "text": formData };
+        var postData = { "token": token, "userID": userID, "timestamp": currentDate, "data": formDataObject };
+        
+        var Data= JSON.stringify(postData);
+        console.log(Data);
+
+            $.ajax({
+                type: "POST",
+                url: "//127.0.0.1:8080/post",
+                data: Data,
+                success: function (data) {
+                    console.log('Submission was successful.');
+                    console.log(data);
+                    window.location.href = "/Patients/Done";
+                },
+                error: function (data) {
+                    console.log('An error occurred.');
+                    console.log(data);
+                },
+                dataType: "json",
+                contentType: "application/json"
+            });
+        });
+</script>
 

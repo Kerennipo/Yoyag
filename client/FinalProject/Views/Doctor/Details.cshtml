@@ -125,3 +125,37 @@
         }
     }
 </script>
+
+<script>
+
+    $('#myForm').submit(function (e) {
+
+            e.preventDefault();
+
+        var userID = '@Model.userID';
+        var token = "ABRAKADABR@1237";
+        var formData = document.getElementById("Diagnosis").value;
+        var postData = { "token": token, "userID": userID, "diagnosis": formData };
+
+        var Data= JSON.stringify(postData);
+        console.log(Data);
+
+            $.ajax({
+                type: "POST",
+                url: "//127.0.0.1:8080/update",
+                data: Data,
+                success: function (data) {
+                    console.log('Submission was successful.');
+                    console.log(data);
+                   // window.location.href = "/Patients/Done";
+                },
+                error: function (data) {
+                    console.log('An error occurred.');
+                    console.log(data);
+                },
+                dataType: "json",
+                contentType: "application/json"
+            });
+    });
+
+    </script>

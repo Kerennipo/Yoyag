@@ -29,10 +29,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/22/2018 17:12:24</publishTime>
     </File>
     <File Include="bin/FinalProject.dll">
-      <publishTime>04/25/2018 20:13:21</publishTime>
+      <publishTime>05/29/2018 20:39:03</publishTime>
     </File>
     <File Include="bin/FinalProject.pdb">
-      <publishTime>04/25/2018 20:13:21</publishTime>
+      <publishTime>05/29/2018 20:39:03</publishTime>
     </File>
     <File Include="bin/Microsoft.AI.Agent.Intercept.dll">
       <publishTime>04/22/2018 17:12:24</publishTime>
@@ -569,7 +569,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/07/2018 17:12:17</publishTime>
     </File>
     <File Include="Content/Site.css">
-      <publishTime>04/24/2018 13:01:18</publishTime>
+      <publishTime>05/08/2018 23:04:15</publishTime>
     </File>
     <File Include="favicon.ico">
       <publishTime>04/22/2018 17:12:22</publishTime>
@@ -737,19 +737,25 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/23/2018 21:36:20</publishTime>
     </File>
     <File Include="Views/Doctor/Details.cshtml">
-      <publishTime>04/23/2018 16:03:22</publishTime>
+      <publishTime>04/29/2018 18:04:50</publishTime>
+    </File>
+    <File Include="Views/Doctor/DetailsBackup.cshtml">
+      <publishTime>04/26/2018 22:01:00</publishTime>
     </File>
     <File Include="Views/Doctor/Done.cshtml">
-      <publishTime>04/22/2018 17:12:20</publishTime>
+      <publishTime>04/28/2018 14:57:41</publishTime>
     </File>
     <File Include="Views/Doctor/Index.cshtml">
       <publishTime>04/23/2018 14:55:00</publishTime>
     </File>
     <File Include="Views/Patients/Create.cshtml">
-      <publishTime>04/25/2018 19:15:27</publishTime>
+      <publishTime>05/08/2018 19:52:34</publishTime>
     </File>
     <File Include="Views/Patients/Done.cshtml">
       <publishTime>04/23/2018 21:54:30</publishTime>
+    </File>
+    <File Include="Views/Patients/StringCreate.cshtml">
+      <publishTime>05/29/2018 19:33:27</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
       <publishTime>04/22/2018 17:12:20</publishTime>
@@ -764,7 +770,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/22/2018 17:12:20</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>04/25/2018 20:13:21</publishTime>
+      <publishTime>05/29/2018 19:26:03</publishTime>
     </File>
   </ItemGroup>
 </Project>
