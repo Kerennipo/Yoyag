@@ -4,6 +4,10 @@
 package com.yoyag.api;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -63,12 +67,22 @@ public class NLPMedicalParser implements Parser {
 			JCas jcas = pipeline.newJCas();
 			jcas.setDocumentText(text);
 			pipeline.process(jcas);
-			List<String> symptoms = formatResults(jcas);
+			List<String> symptoms = formatResults(jcas, input.getUserID(), (String)input.getData().get("location"));
 			jcas.reset();
 			String result = parseSymptoms(symptoms);
 			out.setContent(result);
 			out.setTimestamp(input.getTimestamp());
 			out.setUserID(input.getUserID());
+			String query;
+			
+			//preparing query
+			//query = "INSERT INTO patientData (ts, userID, token) VALUES ('" + input.getTimestamp() + "','" + input.getUserID() + "','" + input.getToken() + "');";
+			//query =  "UPDATE patientData SET ts = '" + input.getTimestamp() + "', token = '" + input.getToken() + "' where userID = '" + input.getUserID() + "';";
+			query =  "UPDATE patientData SET ts = '" + input.getTimestamp() + "' where userID = '" + input.getUserID() + "';";
+
+			//running query
+			runQuery(query);
+			
 			new MedicalSummaryHandler().handle(out);
 //			LOGGER.info(result);
 			
@@ -78,13 +92,30 @@ public class NLPMedicalParser implements Parser {
 		}
 	}
 	
-	public List<String> formatResults(JCas jcas) throws SAXException, IOException {
+	public List<String> formatResults(JCas jcas, String userID, String location) throws SAXException, IOException {
 		LOGGER.info("Starting to process results");
 		List<String> symptoms = new ArrayList<String>();
 		for (TOP annotation : JCasUtil.selectAll(jcas)) {
 			extractFeatures(symptoms, (FeatureStructure)annotation);
 		}
 		symptoms = new ArrayList<>(new HashSet<String>(symptoms));
+		String query;
+		
+		StringBuilder sb = new StringBuilder();
+		for (String s : symptoms) {
+			sb.append(s);
+			sb.append(",");
+		}
+		String stringSymptoms = sb.toString();
+		System.out.println(stringSymptoms);
+		//preparing query
+		//query =  "UPDATE patientData  SET symptoms = '" + stringSymptoms + "' where userID = '" + userID + "';";
+		query = "INSERT INTO patientData (userID, symptoms, location) VALUES ('" + userID + "','" + stringSymptoms + "', '" + location + "');";
+
+		System.out.println(query);
+
+		//running query
+		runQuery(query);
 		return symptoms;
 	}
 	
@@ -142,6 +173,44 @@ public class NLPMedicalParser implements Parser {
 				sb.append(".");
 		}
 		return sb.toString();
+	}
+	
+	public static void createDBConnection() {
+		// creating db connection
+		try {
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+        } catch (Exception ex) {
+            // handle the error
+        }
+	}
+	
+	public static int runQuery(String query) {
+		// creating db connection
+		createDBConnection();
+		
+		Connection conn = null;
+		try {
+		    conn =
+			    	   DriverManager.getConnection("jdbc:mysql://localhost:3306/yoyagDB?" +
+			                    "user=javauser&password=javaDBuser1!&useSSL=false");
+//			       DriverManager.getConnection("jdbc:mysql://193.106.55.122:2222/yoyagDB?" +
+//			                                   "user=javauser&password=javaDBuser1!&useSSL=false");
+		    //creating statements and running the query
+		    Statement stmt = conn.createStatement();
+		    stmt.executeUpdate(query);
+			stmt.close();
+			conn.close();
+			
+			return 1;
+		   
+		} catch (SQLException ex) {
+		    // handle any errors
+		    System.out.println("SQLException: " + ex.getMessage());
+		    System.out.println("SQLState: " + ex.getSQLState());
+		    System.out.println("VendorError: " + ex.getErrorCode());
+		    
+		    return 2;
+		}
 	}
 }
 
