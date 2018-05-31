@@ -20,8 +20,7 @@ public class MedicalSummaryHandler implements SummaryHandler {
 		System.out.println("Abour to send out='" + out.toString() + "' to uri='" + uri + "'");
 		RestTemplate restTemplate = new RestTemplate();
 		String result = restTemplate.postForObject(uri, out, String.class);
-		System.out.println(result);
-		//System.out.println("Will post to " + uri);
+//		System.out.println(result);
 	}
 	
 	private String getUri(Output out) {
