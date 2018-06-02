@@ -3,16 +3,14 @@
  */
 package com.yoyag.api;
 
-import java.util.Map;
-
 /**
  * @author ben
  *
  */
 public class StatisticsInput implements Input {
 	private String userID;
-	private String token;
-	private Map<String, Object> data;
+	private String sessionID;
+
 	/**
 	 * @return the userID
 	 */
@@ -25,28 +23,10 @@ public class StatisticsInput implements Input {
 	public void setUserID(String userID) {
 		this.userID = userID;
 	}
-	/**
-	 * @return the token
-	 */
-	public String getToken() {
-		return token;
+	public String getSessionID() {
+		return sessionID;
 	}
-	/**
-	 * @param token the token to set
-	 */
-	public void setToken(String token) {
-		this.token = token;
-	}
-	/**
-	 * @return the data
-	 */
-	public Map<String, Object> getData() {
-		return data;
-	}
-	/**
-	 * @param data the data to set
-	 */
-	public void setData(Map<String, Object> data) {
-		this.data = data;
+	public void setSessionID(String sessionID) {
+		this.sessionID = sessionID;
 	}
 }
