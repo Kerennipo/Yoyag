@@ -122,6 +122,7 @@
         var xhttp = new XMLHttpRequest();
 
         xhttp.open("POST", url, false);
+        xhttp.setRequestHeader('Content-type', 'application/json; charset=utf-8');
         xhttp.send(JSON.stringify(postData));
         return JSON.parse(xhttp.responseText);
     }
