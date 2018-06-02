@@ -1,19 +1,12 @@
 ﻿@model IEnumerable<FinalProject.Models.Summary>
 
-@{
-    ViewBag.Title = "Index";
-}
 
 <div id="doctors">
-    <h3>Patients List</h3>
+    <h3>Summaries List for @ViewBag.id</h3>
 
 
     <table id="form-table" class="form-group">
         <tr>
-
-            <th>
-                <label class="control-label col-md-2">Patient ID</label>
-            </th>
             <th>
                 <label class="control-label col-md-2">Reported On</label>
             </th>
@@ -22,16 +15,12 @@
         @foreach (var item in Model)
         {
             <tr>
-
-                <td>
-                    @Html.DisplayFor(modelItem => item.userID)
-                </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.timeStamp)
                 </td>
 
                 <td>
-                    @Html.ActionLink("Details", "patientDetails", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "summaryDetails", new { id = item.Id }) |
                     @Html.ActionLink("Delete", "Delete", new { id = item.Id })
                 </td>
             </tr>

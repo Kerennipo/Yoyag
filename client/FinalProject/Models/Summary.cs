@@ -18,5 +18,6 @@ namespace FinalProject.Models
         public string userID { get; set; }
         public string timeStamp { get; set; }
         public string content { get; set; }
+        public string sessionID { get; set; }
     }
 }
