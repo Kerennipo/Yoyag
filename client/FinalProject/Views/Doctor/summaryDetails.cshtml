@@ -24,7 +24,7 @@
                 <option value="Anxiety">Anxiety</option>
                 <option value="Obesity">Obesity</option>
                 <option value="Respiratory problems">Respiratory problems</option>
-                <option value="Pain in joint'">Pain in joint'</option>
+                <option value="Pain in joint">Pain in joint</option>
                 <option value="Depressive disorder">Depressive disorder</option>
                 <option value="Bronchitis">Bronchitis</option>
                 <option value="Asthma">Asthma</option>
@@ -78,8 +78,11 @@
         google.charts.load("current", { packages: ["corechart"] });
         google.charts.setOnLoadCallback(drawChart);
         function drawChart() {
+            var rawData = getRawData();
+            var parsedData = parseRawData(rawData);
+            var data = google.visualization.arrayToDataTable(parsedData);
 
-            var data = google.visualization.arrayToDataTable([
+            /*var data = google.visualization.arrayToDataTable([
                 ['Diagnosis', 'Count'],
                 ['Diabetes', 21],
                 ['Back pain', 40],
@@ -93,7 +96,7 @@
                 ['Nail fungus', 12],
                 ['Urinary tract infection', 46],
                 ['Allergic response', 25]
-            ]);
+            ]);*/
 
             var options = {
                 title: 'Medical Diagnoses Statistics',
@@ -123,6 +126,23 @@
         if (event.target == modal) {
             modal.style.display = "none";
         }
+    }
+    
+    function getRawData() {
+        var url = "http://127.0.0.1:8080/getStatistics";
+        var xhttp = new XMLHttpRequest();
+        xhttp.open("GET", url, false);
+        xhttp.send();
+        return JSON.parse(xhttp.responseText);
+    }
+    function parseRawData(rawData) {
+        var list = [['Diagnosis', 'Count']];
+        Object.keys(rawData).forEach(function(key){
+            //console.log(k + ' - ' + rawData[key]);
+            list = list.concat([key, rawData[key]);
+        });
+        console.log(JSON.stringify(list)); //DEBUG
+        return list;
     }
 </script>
 

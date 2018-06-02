@@ -68,9 +68,10 @@ public class RestAPIController {
 	}
 	
 	private Map<String, Integer> getStatiscsFromDB(StatisticsInput input) {
-		String query = "";
-		
-		return null; //TODO
+		Map<String, Integer> map = new HashMap<>();
+		map.put("Diabetes", new Integer(21));
+		map.put("Back pain", new Integer(40));
+		return map;
 	}
 	
 	private Parser getParserForInput(NewInput input) throws ServletException {
