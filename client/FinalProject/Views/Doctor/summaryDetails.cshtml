@@ -134,6 +134,7 @@
 
         var userID = '@Model.userID';
         var sessionID = '@Model.sessionID';
+        userID = userID.trim();
         var token = "ABRAKADABR@1237";
         var formData = document.getElementById("Diagnosis").value;
         var postData = { "token": token, "userID": userID, "sessionID": sessionID, "diagnosis": formData };
@@ -148,7 +149,7 @@
                 success: function (data) {
                     console.log('Submission was successful.');
                     console.log(data);
-                   // window.location.href = "/Patients/Done";
+                    window.location.href = "/Patients/Done";
                 },
                 error: function (data) {
                     console.log('An error occurred.');
