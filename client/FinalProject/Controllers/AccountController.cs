@@ -63,6 +63,7 @@ namespace FinalProject.Controllers
         {
             if (ModelState.IsValid)
             {
+                user.userID= user.userID.Trim();
                 db.Users.Add(user);
                 db.SaveChanges();
                 return RedirectToAction("Index");
