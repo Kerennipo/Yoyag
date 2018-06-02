@@ -1,0 +1,123 @@
+package clientIDCreator;
+
+import java.nio.charset.Charset;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Random;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
+
+public class IDCreator {
+
+	public static void main(String[] args) throws SQLException, NamingException {
+		
+		
+		
+	}
+	
+	public void customerSighUp(String customerName, String server_address) {
+		String query;
+		query = "SELECT name FROM customers where name = " + customerName;
+		int exists = runQuery(query);
+		if (exists == 0) {
+			//results are empty -> there is no such customer. need to create id
+			
+			//getting current time to insert into table
+			java.util.Date dt = new java.util.Date();
+			java.text.SimpleDateFormat sdf = 
+			     new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			String currentTime = sdf.format(dt);
+			
+			//generating id
+			
+			
+			//creating query
+			query = "INSERT INTO customers VALUES ('" + customerName + "','" + currentTime + "','" + server_address + "');";
+			runQuery(query);
+		}
+		else if (exists == 1){
+			//customer exists
+		}
+		else {
+			//query didn't run
+		}
+	}
+	
+	public int runQuery(String query) {
+		// creating db connection
+		try {
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+        } catch (Exception ex) {
+            // handle the error
+        }
+		
+		Connection conn = null;
+		try {
+		    conn =
+		       DriverManager.getConnection("jdbc:mysql://10.10.192.78:13306/finalproj?" +
+		                                   "user=javauser&password=javaDBuser1!&useSSL=false");
+		    //creating statements and running the query
+		    Statement stmt = conn.createStatement();
+		    ResultSet rs = stmt.executeQuery(query);
+		    
+		    //check if no results
+		    if (rs.next() == false) {
+		        //System.out.println("ResultSet in empty in Java");
+		    		rs.close();
+				stmt.close();
+				conn.close();
+		        return 0;
+		     } 
+//		    else {
+//		        do {
+//		          String data = rs.getString("emp_name");
+//		          System.out.println(data);
+//		        } while (rs.next());
+//		    }
+
+		    //printing the results
+//		    ResultSetMetaData rsmd = rs.getMetaData();
+//		    int columnsNumber = rsmd.getColumnCount();
+//		    while (rs.next()) {
+//		        for (int i = 1; i <= columnsNumber; i++) {
+//		            if (i > 1) System.out.print(",  ");
+//		            String columnValue = rs.getString(i);
+//		            System.out.print(columnValue + " ");
+//		        }
+//		        System.out.println("");
+//		    }
+		    
+		    rs.close();
+			stmt.close();
+			conn.close();
+			
+			return 1;
+		   
+		} catch (SQLException ex) {
+		    // handle any errors
+		    System.out.println("SQLException: " + ex.getMessage());
+		    System.out.println("SQLState: " + ex.getSQLState());
+		    System.out.println("VendorError: " + ex.getErrorCode());
+		    
+		    return 2;
+		}
+	}
+	
+	public String gengerateID() {
+	    byte[] array = new byte[7]; // length is bounded by 7
+	    new Random().nextBytes(array);
+	    String generatedString = new String(array, Charset.forName("UTF-8"));
+	 
+	    System.out.println("id is: " + generatedString);
+	    
+	    return generatedString;
+	}
+	
+}

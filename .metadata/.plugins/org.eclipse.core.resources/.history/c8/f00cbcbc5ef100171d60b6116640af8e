@@ -1,0 +1,57 @@
+package clientIDCreator;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class IDCreator {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		System.out.println("Loading driver...");
+
+		try {
+		    Class.forName("com.mysql.jdbc.Driver");
+		    System.out.println("Driver loaded!");
+		} catch (ClassNotFoundException e) {
+		    throw new IllegalStateException("Cannot find the driver in the classpath!", e);
+		}
+		
+		String url = "jdbc:mysql://localhost:3306/javabase";
+		String username = "root";
+		String password = "coolprojectDB1!";
+
+		System.out.println("Connecting database...");
+
+		try (Connection connection = DriverManager.getConnection(url, username, password)) {
+		    System.out.println("Database connected!");
+		} catch (SQLException e) {
+		    throw new IllegalStateException("Cannot connect the database!", e);
+		}
+	}
+	
+	public String IDcreate() {
+		
+		//create db connection
+		
+		
+//		MysqlDataSource dataSource = new MysqlDataSource();
+//		dataSource.setUser("scott");
+//		dataSource.setPassword("tiger");
+//		dataSource.setServerName("myDBHost.example.org");
+//		
+		
+		
+		
+		
+		return null;
+		
+	}
+}
+
+//inside the java create a class that will connect to the db and:
+//1: generate API token
+//2: validate it
+//the token is unique to every customer (insurance) 
+//the table that contains the tokens should contain the server's address *V
