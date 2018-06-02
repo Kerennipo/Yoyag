@@ -82,22 +82,6 @@
             var parsedData = parseRawData(rawData);
             var data = google.visualization.arrayToDataTable(parsedData);
 
-            /*var data = google.visualization.arrayToDataTable([
-                ['Diagnosis', 'Count'],
-                ['Diabetes', 21],
-                ['Back pain', 40],
-                ['Anxiety', 120],
-                ['Obesity', 160],
-                ['Respiratory problems', 77],
-                ['Pain in joint', 56],
-                ['Depressive disorder', 136],
-                ['Bronchitis', 23],
-                ['Asthma', 79],
-                ['Nail fungus', 12],
-                ['Urinary tract infection', 46],
-                ['Allergic response', 25]
-            ]);*/
-
             var options = {
                 title: 'Medical Diagnoses Statistics',
                 pieHole: 0.4,
@@ -129,17 +113,23 @@
     }
     
     function getRawData() {
+        var userID = '@Model.userID';
+        var sessionID = '@Model.sessionID';
+        userID = userID.trim();
+        var token = "ABRAKADABR@1237";
+        var postData = { "token": token, "userID": userID, "sessionID": sessionID};
         var url = "http://127.0.0.1:8080/getStatistics";
         var xhttp = new XMLHttpRequest();
-        xhttp.open("GET", url, false);
-        xhttp.send();
+
+        xhttp.open("POST", url, false);
+        xhttp.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+        xhttp.send(JSON.stringify(postData));
         return JSON.parse(xhttp.responseText);
     }
     function parseRawData(rawData) {
         var list = [['Diagnosis', 'Count']];
         Object.keys(rawData).forEach(function(key){
-            //console.log(k + ' - ' + rawData[key]);
-            list = list.concat([key, rawData[key]);
+            list = list.concat([[key, rawData[key]]]);
         });
         console.log(JSON.stringify(list)); //DEBUG
         return list;

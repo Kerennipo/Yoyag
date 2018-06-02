@@ -109,8 +109,10 @@ public class RestAPIController {
 		Connection conn = null;
 		try {
 		    conn =
-			    	   DriverManager.getConnection("jdbc:mysql://localhost:3306/yoyagDB?" +
-			                    "user=javauser&password=javaDBuser1!&useSSL=false");
+		    		DriverManager.getConnection("jdbc:mysql://localhost:3306/yoyagDB?" +
+		                    "user=root&password=!QAZ2wsx&useSSL=false");
+//			    	   DriverManager.getConnection("jdbc:mysql://localhost:3306/yoyagDB?" +
+//			                    "user=javauser&password=javaDBuser1!&useSSL=false");
 //			       DriverManager.getConnection("jdbc:mysql://193.106.55.122:2222/yoyagDB?" +
 //			                                   "user=javauser&password=javaDBuser1!&useSSL=false");
 		    //creating statements and running the query
@@ -130,7 +132,8 @@ public class RestAPIController {
 	        while (rs.next()) {
 	            String column1 = rs.getString(column1Pos);
 	            int column2 = rs.getInt(column2Pos);
-	            data.put(column1, column2);
+	            if (column1 != null)
+	            	data.put(column1, column2);
 	        }
 	        
 	        for(String string: data.keySet())

@@ -7,7 +7,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAADwG6ac7MgUqbmViFjA2HrQAAAAACAAAAAAADZgAAwAAAABAAAACJKY04OmR7LyJOQYmxjitaAAAAAASAAACgAAAAEAAAAIWK9TkJxT9Uv5TAbFJXKFMYAAAATwpoMxX5Bl9sf+D/uk5M5cIaDrXcqdBtFAAAAKFczX+wwlOoOdcL3B48MqYXLilL</EncryptedPassword>
-    <_PublishTargetUrl>ftp://db.cs.colman.ac.il</_PublishTargetUrl>
+    <_PublishTargetUrl>ftp://db.cs.colman.ac.il/yoyag</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="ApplicationInsights.config">

@@ -117,10 +117,12 @@ public class NLPMedicalParser implements Parser {
 		System.out.println(query);
 		
 		//running query
-		runQuery(query);
+		//runQuery(query);
+		String currentToken = runInsertQuery(query);
 		
-		query = "select last_insert_id();";
-		String currentToken = runSelectQuery(query); 
+		//query = "select last_insert_id();";
+		//String currentToken = runSelectQuery(query); 
+		System.out.println("DEBUG: currentToken='" + currentToken + "'");
 		out.setSessionID(currentToken);
 		return symptoms;
 	}
@@ -197,8 +199,10 @@ public class NLPMedicalParser implements Parser {
 		Connection conn = null;
 		try {
 		    conn =
-			    	   DriverManager.getConnection("jdbc:mysql://localhost:3306/yoyagDB?" +
-			                    "user=javauser&password=javaDBuser1!&useSSL=false");
+		    		DriverManager.getConnection("jdbc:mysql://localhost:3306/yoyagDB?" +
+		                    "user=root&password=!QAZ2wsx&useSSL=false");
+//			    	   DriverManager.getConnection("jdbc:mysql://localhost:3306/yoyagDB?" +
+//			                    "user=javauser&password=javaDBuser1!&useSSL=false");
 //			       DriverManager.getConnection("jdbc:mysql://193.106.55.122:2222/yoyagDB?" +
 //			                                   "user=javauser&password=javaDBuser1!&useSSL=false");
 		    //creating statements and running the query
@@ -226,8 +230,10 @@ public class NLPMedicalParser implements Parser {
 		Connection conn = null;
 		try {
 		    conn =
-			    	   DriverManager.getConnection("jdbc:mysql://localhost:3306/yoyagDB?" +
-			                    "user=javauser&password=javaDBuser1!&useSSL=false");
+		    		DriverManager.getConnection("jdbc:mysql://localhost:3306/yoyagDB?" +
+		                    "user=root&password=!QAZ2wsx&useSSL=false");
+//			    	   DriverManager.getConnection("jdbc:mysql://localhost:3306/yoyagDB?" +
+//			                    "user=javauser&password=javaDBuser1!&useSSL=false");
 //			       DriverManager.getConnection("jdbc:mysql://193.106.55.122:2222/yoyagDB?" +
 //			                                   "user=javauser&password=javaDBuser1!&useSSL=false");
 		    //creating statements and running the query
@@ -247,6 +253,53 @@ public class NLPMedicalParser implements Parser {
 //		    Statement stmt = conn.createStatement();
 //		    stmt.executeUpdate(query);
 			//stmt.close();
+			conn.close();
+			
+			return result;
+		   
+		} catch (SQLException ex) {
+		    // handle any errors
+		    System.out.println("SQLException: " + ex.getMessage());
+		    System.out.println("SQLState: " + ex.getSQLState());
+		    System.out.println("VendorError: " + ex.getErrorCode());
+		    
+		    return "Error";
+		}
+	}
+	public static String runInsertQuery(String query) throws SQLException {
+		// creating db connection
+		createDBConnection();
+		
+		Connection conn = null;
+		try {
+		    conn =
+		    		DriverManager.getConnection("jdbc:mysql://localhost:3306/yoyagDB?" +
+		                    "user=root&password=!QAZ2wsx&useSSL=false");
+//			    	   DriverManager.getConnection("jdbc:mysql://localhost:3306/yoyagDB?" +
+//			                    "user=javauser&password=javaDBuser1!&useSSL=false");
+//			       DriverManager.getConnection("jdbc:mysql://193.106.55.122:2222/yoyagDB?" +
+//			                                   "user=javauser&password=javaDBuser1!&useSSL=false");
+		    //creating statements and running the query
+		    
+		    Statement stmt = conn.createStatement();
+		    stmt.executeUpdate(query);
+
+		    
+		    java.sql.PreparedStatement preparedStatement = null;
+		    query = "select last_insert_id();";
+
+	        preparedStatement = conn.prepareStatement(query);
+
+	        //preparedStatement.setString(1, league);
+	        ResultSet rs = preparedStatement.executeQuery();
+	       
+	        String result = null;
+	        if(rs.next())
+	        	result = rs.getString(1);
+		    
+//		    Statement stmt = conn.createStatement();
+//		    stmt.executeUpdate(query);
+			stmt.close();
 			conn.close();
 			
 			return result;
