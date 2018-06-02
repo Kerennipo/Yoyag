@@ -1,0 +1,81 @@
+package clientIDCreator;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
+
+public class IDCreator {
+
+	public static void main(String[] args) throws SQLException, NamingException {
+		// TODO Auto-generated method stub
+		Context context = null;
+		try {
+			context = new InitialContext();
+		} catch (NamingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		DataSource dataSource = (DataSource) context.lookup("java:comp/env/jdbc/myDB");
+
+		
+		Connection conn = dataSource.getConnection();
+		Statement stmt = conn.createStatement();
+		ResultSet rs = stmt.executeQuery("SELECT ID FROM USERS");
+		
+		
+		//MysqlDataSource dataSource = new MysqlDataSource();
+//		dataSource.setUser("scott");
+//		dataSource.setPassword("tiger");
+//		dataSource.setServerName("myDBHost.example.org");
+		
+//		System.out.println("Loading driver...");
+//
+//		try {
+//		    Class.forName("com.mysql.jdbc.Driver");
+//		    System.out.println("Driver loaded!");
+//		} catch (ClassNotFoundException e) {
+//		    throw new IllegalStateException("Cannot find the driver in the classpath!", e);
+//		}
+//		
+//		String url = "jdbc:mysql://localhost:3306/javabase";
+//		String username = "root";
+//		String password = "coolprojectDB1!";
+//
+//		System.out.println("Connecting database...");
+//
+//		try (Connection connection = DriverManager.getConnection(url, username, password)) {
+//		    System.out.println("Database connected!");
+//		} catch (SQLException e) {
+//		    throw new IllegalStateException("Cannot connect the database!", e);
+//		}
+	}
+	
+	public String IDcreate() {
+		
+		//create db connection
+		
+		
+//		
+//		
+		
+		
+		
+		
+		return null;
+		
+	}
+}
+
+//inside the java create a class that will connect to the db and:
+//1: generate API token
+//2: validate it
+//the token is unique to every customer (insurance) 
+//the table that contains the tokens should contain the server's address *V

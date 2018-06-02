@@ -4,6 +4,10 @@
 package com.yoyag.api;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -73,6 +77,59 @@ public class RestAPIController {
 	private Parser getParserForInput(NewInput input) throws ServletException {
 //		return new SimpleMedicalParser();
 		return parsersFactory.get("NLP");
+	}
+	
+	public static void createDBConnection() {
+		// creating db connection
+		try {
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+        } catch (Exception ex) {
+            // handle the error
+        }
+	}
+	
+	public static String runSelectQuery(String query) throws SQLException {
+		// creating db connection
+		createDBConnection();
+		
+		Connection conn = null;
+		try {
+		    conn =
+			    	   DriverManager.getConnection("jdbc:mysql://localhost:3306/yoyagDB?" +
+			                    "user=javauser&password=javaDBuser1!&useSSL=false");
+//			       DriverManager.getConnection("jdbc:mysql://193.106.55.122:2222/yoyagDB?" +
+//			                                   "user=javauser&password=javaDBuser1!&useSSL=false");
+		    //creating statements and running the query
+		    
+		    java.sql.PreparedStatement preparedStatement = null;
+	        //String query = "select season from seasonTable where league_name=?";
+
+	        preparedStatement = conn.prepareStatement(query);
+
+	        //preparedStatement.setString(1, league);
+	        ResultSet rs = preparedStatement.executeQuery();
+	       
+	        String result = null;
+	        if(rs.next())
+	        	result = rs.getString(1);
+		    
+//		    Statement stmt = conn.createStatement();
+//		    stmt.executeUpdate(query);
+			//stmt.close();
+			conn.close();
+			
+			return result;
+		   
+		} catch (SQLException ex) {
+		    // handle any errors
+		    System.out.println("SQLException: " + ex.getMessage());
+		    System.out.println("SQLState: " + ex.getSQLState());
+		    System.out.println("VendorError: " + ex.getErrorCode());
+		    
+		    return "Error";
+		}
+		
+		
 	}
 	
 }
