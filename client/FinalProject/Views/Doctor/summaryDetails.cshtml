@@ -113,16 +113,21 @@
     }
     
     function getRawData() {
+        var userID = '@Model.userID';
+        var sessionID = '@Model.sessionID';
+        userID = userID.trim();
+        var token = "ABRAKADABR@1237";
+        var postData = { "token": token, "userID": userID, "sessionID": sessionID};
         var url = "http://127.0.0.1:8080/getStatistics";
         var xhttp = new XMLHttpRequest();
-        xhttp.open("GET", url, false);
-        xhttp.send();
+
+        xhttp.open("POST", url, false);
+        xhttp.send(JSON.stringify(postData));
         return JSON.parse(xhttp.responseText);
     }
     function parseRawData(rawData) {
         var list = [['Diagnosis', 'Count']];
         Object.keys(rawData).forEach(function(key){
-            //console.log(k + ' - ' + rawData[key]);
             list = list.concat([[key, rawData[key]]]);
         });
         console.log(JSON.stringify(list)); //DEBUG
