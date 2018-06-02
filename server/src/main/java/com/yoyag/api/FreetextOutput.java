@@ -11,6 +11,7 @@ public class FreetextOutput implements Output {
 	private String timeStamp;
 	private String content;
 	private String userID;
+	private String sessionID;
 	/**
 	 * @return the timestamp
 	 */
@@ -46,6 +47,18 @@ public class FreetextOutput implements Output {
 	 */
 	public void setUserID(String userID) {
 		this.userID = userID;
+	}
+	/**
+	 * @return the sessionID
+	 */
+	public String getSessionID() {
+		return sessionID;
+	}
+	/**
+	 * @param sessionID the sessionID to set
+	 */
+	public void setSessionID(String sessionID) {
+		this.sessionID = sessionID;
 	}
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()

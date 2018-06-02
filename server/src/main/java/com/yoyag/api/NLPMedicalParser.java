@@ -6,6 +6,7 @@ package com.yoyag.api;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -67,7 +68,8 @@ public class NLPMedicalParser implements Parser {
 			JCas jcas = pipeline.newJCas();
 			jcas.setDocumentText(text);
 			pipeline.process(jcas);
-			List<String> symptoms = formatResults(jcas, input.getUserID(), (String)input.getData().get("location"));
+			String customer_id = input.getToken();
+			List<String> symptoms = formatResults(jcas, input.getUserID(), (String)input.getData().get("location"), customer_id, out);
 			jcas.reset();
 			String result = parseSymptoms(symptoms);
 			out.setContent(result);
@@ -92,7 +94,7 @@ public class NLPMedicalParser implements Parser {
 		}
 	}
 	
-	public List<String> formatResults(JCas jcas, String userID, String location) throws SAXException, IOException {
+	public List<String> formatResults(JCas jcas, String userID, String location, String customer_id, FreetextOutput out) throws SAXException, IOException, SQLException {
 		LOGGER.info("Starting to process results");
 		List<String> symptoms = new ArrayList<String>();
 		for (TOP annotation : JCasUtil.selectAll(jcas)) {
@@ -110,12 +112,16 @@ public class NLPMedicalParser implements Parser {
 		System.out.println(stringSymptoms);
 		//preparing query
 		//query =  "UPDATE patientData  SET symptoms = '" + stringSymptoms + "' where userID = '" + userID + "';";
-		query = "INSERT INTO patientData (userID, symptoms, location) VALUES ('" + userID + "','" + stringSymptoms + "', '" + location + "');";
-
+		query = "INSERT INTO patientData (userID, customer_id, symptoms, location) VALUES ('" + userID + "','" + customer_id + "','" + stringSymptoms + "', '" + location + "');";
+		
 		System.out.println(query);
-
+		
 		//running query
 		runQuery(query);
+		
+		query = "select last_insert_id();";
+		String currentToken = runSelectQuery(query); 
+		out.setSessionID(currentToken);
 		return symptoms;
 	}
 	
@@ -211,6 +217,50 @@ public class NLPMedicalParser implements Parser {
 		    
 		    return 2;
 		}
+	}
+	
+	public static String runSelectQuery(String query) throws SQLException {
+		// creating db connection
+		createDBConnection();
+		
+		Connection conn = null;
+		try {
+		    conn =
+			    	   DriverManager.getConnection("jdbc:mysql://localhost:3306/yoyagDB?" +
+			                    "user=javauser&password=javaDBuser1!&useSSL=false");
+//			       DriverManager.getConnection("jdbc:mysql://193.106.55.122:2222/yoyagDB?" +
+//			                                   "user=javauser&password=javaDBuser1!&useSSL=false");
+		    //creating statements and running the query
+		    
+		    java.sql.PreparedStatement preparedStatement = null;
+	        //String query = "select season from seasonTable where league_name=?";
+
+	        preparedStatement = conn.prepareStatement(query);
+
+	        //preparedStatement.setString(1, league);
+	        ResultSet rs = preparedStatement.executeQuery();
+	       
+	        String result = null;
+	        if(rs.next())
+	        	result = rs.getString(1);
+		    
+//		    Statement stmt = conn.createStatement();
+//		    stmt.executeUpdate(query);
+			//stmt.close();
+			conn.close();
+			
+			return result;
+		   
+		} catch (SQLException ex) {
+		    // handle any errors
+		    System.out.println("SQLException: " + ex.getMessage());
+		    System.out.println("SQLState: " + ex.getSQLState());
+		    System.out.println("VendorError: " + ex.getErrorCode());
+		    
+		    return "Error";
+		}
+		
+		
 	}
 }
 

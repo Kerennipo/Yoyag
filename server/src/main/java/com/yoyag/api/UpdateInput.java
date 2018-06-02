@@ -11,6 +11,8 @@ public class UpdateInput implements Input {
 	private String token;
 	private String userID;
 	private String diagnosis;
+	private String sessionID;
+	
 	/**
 	 * @return the token
 	 */
@@ -40,6 +42,18 @@ public class UpdateInput implements Input {
 	 */
 	public String getDiagnosis() {
 		return diagnosis;
+	}
+	/**
+	 * @return the sessionID
+	 */
+	public String getSessionID() {
+		return sessionID;
+	}
+	/**
+	 * @param sessionID the sessionID to set
+	 */
+	public void setSessionID(String sessionID) {
+		this.sessionID = sessionID;
 	}
 	/**
 	 * @param diagnosis the diagnosis to set
