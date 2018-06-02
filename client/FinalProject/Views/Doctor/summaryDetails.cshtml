@@ -133,9 +133,10 @@
             e.preventDefault();
 
         var userID = '@Model.userID';
+        var sessionID = '@Model.sessionID';
         var token = "ABRAKADABR@1237";
         var formData = document.getElementById("Diagnosis").value;
-        var postData = { "token": token, "userID": userID, "diagnosis": formData };
+        var postData = { "token": token, "userID": userID, "sessionID": sessionID, "diagnosis": formData };
 
         var Data= JSON.stringify(postData);
         console.log(Data);

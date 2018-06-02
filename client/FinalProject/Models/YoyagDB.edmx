@@ -13,6 +13,7 @@
           <Property Name="userID" Type="nchar" MaxLength="10" Nullable="false" />
           <Property Name="timeStamp" Type="varchar(max)" Nullable="false" />
           <Property Name="content" Type="varchar(max)" Nullable="false" />
+          <Property Name="sessionID" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
@@ -39,6 +40,7 @@
           <Property Name="userID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="timeStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="content" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="sessionID" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -62,6 +64,7 @@
           <EntitySetMapping Name="Summaries">
             <EntityTypeMapping TypeName="YoyagDBModel.Summary">
               <MappingFragment StoreEntitySet="Summaries">
+                <ScalarProperty Name="sessionID" ColumnName="sessionID" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="userID" ColumnName="userID" />
                 <ScalarProperty Name="timeStamp" ColumnName="timeStamp" />
