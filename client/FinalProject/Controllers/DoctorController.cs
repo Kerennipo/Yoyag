@@ -1,6 +1,7 @@
 ﻿using FinalProject.Models;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -20,11 +21,35 @@ namespace FinalProject.Controllers
         // GET: Doctor
         public ActionResult Index()
         {
-            return View(db.Summaries.ToList());
+            List<Summary> summaries = db.Summaries.GroupBy(p => p.userID)
+                  .Select(g => g.OrderByDescending(p => p.timeStamp)
+                                .FirstOrDefault()
+                   ).ToList();
+            // return View(db.Summaries.ToList());
+               return View(summaries);
         }
 
-        // GET: Doctor/Details/5
-        public ActionResult Details(int? id)
+        // GET: Doctor/patientDetails/5
+        public ActionResult patientDetails(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Summary patient = db.Summaries.Find(id);
+            if (patient == null)
+            {
+                return HttpNotFound();
+            }
+            List<Summary> summaries= (db.Summaries.Where(g => g.userID==patient.userID)
+                                .OrderByDescending(p => p.timeStamp)
+                   ).ToList();
+            ViewBag.id = patient.userID;
+            return View(summaries);
+        }
+
+        // GET: Doctor/summaryDetails/5
+        public ActionResult summaryDetails(int? id)
         {
             if (id == null)
             {
@@ -38,8 +63,8 @@ namespace FinalProject.Controllers
             return View(patient);
         }
 
-        // GET: Doctor/Details/5
-        public ActionResult DetailsIOS(int? id)
+            // GET: Doctor/Details/5
+            public ActionResult DetailsIOS(int? id)
         {
             return View();
         }
@@ -77,8 +102,11 @@ namespace FinalProject.Controllers
                 db.Summaries.Add(summary);
                 db.SaveChanges();
 
+
             return RedirectToAction("Index");
         }
+
+
 
 
     }
