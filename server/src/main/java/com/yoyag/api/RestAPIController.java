@@ -7,9 +7,14 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import javax.annotation.PostConstruct;
 import javax.servlet.ServletException;
@@ -24,6 +29,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.fasterxml.jackson.databind.util.TypeKey;
 
 
 /**
@@ -61,16 +68,23 @@ public class RestAPIController {
 		return new ResponseEntity<String>(HttpStatus.NO_CONTENT);
 	}
 	
-	@RequestMapping(value = "/getStatistics", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Map<String, Integer>> getStatistics(StatisticsInput input) {
-		Map<String, Integer> list = getStatiscsFromDB(input);
+	@RequestMapping(value = "/getStatistics", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Map<String, Integer>> getStatistics(@RequestBody StatisticsInput input) throws SQLException {
+		Map<String, Integer> list = getStatiscsFromDB(input);	
 		return new ResponseEntity<Map<String, Integer>>(list, HttpStatus.OK);
 	}
 	
-	private Map<String, Integer> getStatiscsFromDB(StatisticsInput input) {
-		String query = "";
+	private Map<String, Integer> getStatiscsFromDB(StatisticsInput input) throws SQLException {
+//		String sessionID = "5031";
+//		String userID = "169447435";
+		String sessionID = input.getSessionID();
+		String userID = input.getUserID();
 		
-		return null; //TODO
+		String query = "Select diagnosis, count(distinct userID) as userCount From patientData Where symptoms = (Select distinct symptoms From patientData Where token = \"" + sessionID + "\" and userID = \"" + userID + "\" and location = (SELECT distinct location from patientData where token = \"" + sessionID + "\")) Group by diagnosis;";
+		System.out.println("DEBUG: query='" + query + "'");
+		Map<String, Integer> result = runSelectQuery(query);
+		System.out.println(result);
+		return result;
 	}
 	
 	private Parser getParserForInput(NewInput input) throws ServletException {
@@ -87,7 +101,8 @@ public class RestAPIController {
         }
 	}
 	
-	public static String runSelectQuery(String query) throws SQLException {
+	@SuppressWarnings("unchecked")
+	public static Map<String, Integer> runSelectQuery(String query) throws SQLException {
 		// creating db connection
 		createDBConnection();
 		
@@ -107,17 +122,30 @@ public class RestAPIController {
 
 	        //preparedStatement.setString(1, league);
 	        ResultSet rs = preparedStatement.executeQuery();
-	       
-	        String result = null;
-	        if(rs.next())
-	        	result = rs.getString(1);
+	        
+	        Map<String, Integer> data = new HashMap<String, Integer>();
+	        // parsing the column each time is a linear search
+	        int column1Pos = rs.findColumn("diagnosis");
+	        int column2Pos = rs.findColumn("userCount");
+	        while (rs.next()) {
+	            String column1 = rs.getString(column1Pos);
+	            int column2 = rs.getInt(column2Pos);
+	            data.put(column1, column2);
+	        }
+	        
+	        for(String string: data.keySet())
+	        {
+	            System.out.println(string + ":" + data.get(string) );
+	        }
 		    
 //		    Statement stmt = conn.createStatement();
 //		    stmt.executeUpdate(query);
 			//stmt.close();
 			conn.close();
 			
-			return result;
+			
+			
+			return data;
 		   
 		} catch (SQLException ex) {
 		    // handle any errors
@@ -125,7 +153,7 @@ public class RestAPIController {
 		    System.out.println("SQLState: " + ex.getSQLState());
 		    System.out.println("VendorError: " + ex.getErrorCode());
 		    
-		    return "Error";
+		    return null;
 		}
 		
 		
