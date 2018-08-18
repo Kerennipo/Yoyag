@@ -24,6 +24,6 @@ public class MedicalSummaryHandler implements SummaryHandler {
 	}
 	
 	private String getUri(Output out) {
-		return "http://localhost:2115/Doctor/getSummary";
+		return "http://db.cs.colman.ac.il/Yoyag/Doctor/getSummary";
 	}
 }
