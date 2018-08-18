@@ -2,7 +2,6 @@
  * 
  */
 package com.yoyag.api;
-
 /**
  * @author ben
  *

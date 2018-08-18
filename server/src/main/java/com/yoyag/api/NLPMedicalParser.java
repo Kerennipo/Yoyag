@@ -69,7 +69,7 @@ public class NLPMedicalParser implements Parser {
 			jcas.setDocumentText(text);
 			pipeline.process(jcas);
 			String customer_id = input.getToken();
-			List<String> symptoms = formatResults(jcas, input.getUserID(), (String)input.getData().get("location"), customer_id, out);
+			List<String> symptoms = formatResults(jcas, input.getUserID(), (String)input.getData().get("location"), (String)input.getData().get("diagnosis"), customer_id, out);
 			jcas.reset();
 			String result = parseSymptoms(symptoms);
 			out.setContent(result);
@@ -94,7 +94,7 @@ public class NLPMedicalParser implements Parser {
 		}
 	}
 	
-	public List<String> formatResults(JCas jcas, String userID, String location, String customer_id, FreetextOutput out) throws SAXException, IOException, SQLException {
+	public List<String> formatResults(JCas jcas, String userID, String location, String customer_id, String diagnosis, FreetextOutput out) throws SAXException, IOException, SQLException {
 		LOGGER.info("Starting to process results");
 		List<String> symptoms = new ArrayList<String>();
 		for (TOP annotation : JCasUtil.selectAll(jcas)) {
@@ -112,7 +112,7 @@ public class NLPMedicalParser implements Parser {
 		System.out.println(stringSymptoms);
 		//preparing query
 		//query =  "UPDATE patientData  SET symptoms = '" + stringSymptoms + "' where userID = '" + userID + "';";
-		query = "INSERT INTO patientData (userID, customer_id, symptoms, location) VALUES ('" + userID + "','" + customer_id + "','" + stringSymptoms + "', '" + location + "');";
+		query = "INSERT INTO patientData (userID, customer_id, symptoms, location, diagnosis) VALUES ('" + userID + "','" + customer_id + "','" + stringSymptoms + "', '" + location + "', '" + diagnosis + "');";
 		
 		System.out.println(query);
 		
