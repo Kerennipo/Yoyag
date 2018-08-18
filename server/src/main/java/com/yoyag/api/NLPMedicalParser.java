@@ -199,12 +199,10 @@ public class NLPMedicalParser implements Parser {
 		Connection conn = null;
 		try {
 		    conn =
-		    		DriverManager.getConnection("jdbc:mysql://localhost:3306/yoyagDB?" +
-		                    "user=root&password=!QAZ2wsx&useSSL=false");
-//			    	   DriverManager.getConnection("jdbc:mysql://localhost:3306/yoyagDB?" +
-//			                    "user=javauser&password=javaDBuser1!&useSSL=false");
-//			       DriverManager.getConnection("jdbc:mysql://193.106.55.122:2222/yoyagDB?" +
-//			                                   "user=javauser&password=javaDBuser1!&useSSL=false");
+		    		//DriverManager.getConnection("jdbc:mysql://localhost:3306/yoyagDB?" +
+		            //      "user=root&password=!QAZ2wsx&useSSL=false");
+			    	   DriverManager.getConnection("jdbc:mysql://localhost:3306/yoyagDB?" +
+			                    "user=javauser&password=javaDBuser1!&useSSL=false");
 		    //creating statements and running the query
 		    Statement stmt = conn.createStatement();
 		    stmt.executeUpdate(query);
@@ -230,12 +228,10 @@ public class NLPMedicalParser implements Parser {
 		Connection conn = null;
 		try {
 		    conn =
-		    		DriverManager.getConnection("jdbc:mysql://localhost:3306/yoyagDB?" +
-		                    "user=root&password=!QAZ2wsx&useSSL=false");
-//			    	   DriverManager.getConnection("jdbc:mysql://localhost:3306/yoyagDB?" +
-//			                    "user=javauser&password=javaDBuser1!&useSSL=false");
-//			       DriverManager.getConnection("jdbc:mysql://193.106.55.122:2222/yoyagDB?" +
-//			                                   "user=javauser&password=javaDBuser1!&useSSL=false");
+//		    		DriverManager.getConnection("jdbc:mysql://localhost:3306/yoyagDB?" +
+//		                    "user=root&password=!QAZ2wsx&useSSL=false");
+			    	   DriverManager.getConnection("jdbc:mysql://localhost:3306/yoyagDB?" +
+			                    "user=javauser&password=javaDBuser1!&useSSL=false");
 		    //creating statements and running the query
 		    
 		    java.sql.PreparedStatement preparedStatement = null;
@@ -273,12 +269,10 @@ public class NLPMedicalParser implements Parser {
 		Connection conn = null;
 		try {
 		    conn =
-		    		DriverManager.getConnection("jdbc:mysql://localhost:3306/yoyagDB?" +
-		                    "user=root&password=!QAZ2wsx&useSSL=false");
-//			    	   DriverManager.getConnection("jdbc:mysql://localhost:3306/yoyagDB?" +
-//			                    "user=javauser&password=javaDBuser1!&useSSL=false");
-//			       DriverManager.getConnection("jdbc:mysql://193.106.55.122:2222/yoyagDB?" +
-//			                                   "user=javauser&password=javaDBuser1!&useSSL=false");
+//		    		DriverManager.getConnection("jdbc:mysql://localhost:3306/yoyagDB?" +
+//		                    "user=root&password=!QAZ2wsx&useSSL=false");
+			    	   DriverManager.getConnection("jdbc:mysql://localhost:3306/yoyagDB?" +
+			                    "user=javauser&password=javaDBuser1!&useSSL=false");
 		    //creating statements and running the query
 		    
 		    Statement stmt = conn.createStatement();
