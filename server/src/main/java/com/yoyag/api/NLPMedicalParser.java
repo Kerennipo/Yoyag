@@ -94,7 +94,7 @@ public class NLPMedicalParser implements Parser {
 		}
 	}
 	
-	public List<String> formatResults(JCas jcas, String userID, String location, String customer_id, String diagnosis, FreetextOutput out) throws SAXException, IOException, SQLException {
+	public List<String> formatResults(JCas jcas, String userID, String location, String diagnosis, String customer_id, FreetextOutput out) throws SAXException, IOException, SQLException {
 		LOGGER.info("Starting to process results");
 		List<String> symptoms = new ArrayList<String>();
 		for (TOP annotation : JCasUtil.selectAll(jcas)) {
