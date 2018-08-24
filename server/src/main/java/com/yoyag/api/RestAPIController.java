@@ -80,7 +80,9 @@ public class RestAPIController {
 		String sessionID = input.getSessionID();
 		String userID = input.getUserID();
 		
-		String query = "Select diagnosis, count(distinct userID) as userCount From patientData Where symptoms = (Select distinct symptoms From patientData Where token = \"" + sessionID + "\" and userID = \"" + userID + "\" and location = (SELECT distinct location from patientData where token = \"" + sessionID + "\")) Group by diagnosis;";
+		String query = "Select diagnosis, count(distinct userID) as userCount From patientData Where symptoms like CONCAT('%',"
+				+ "(Select distinct symptoms From patientData Where token = \"" + sessionID + "\" and userID = \"" + userID + "\" and location = (SELECT distinct location from patientData where token = \"" + sessionID + "\")),"
+						+ "'%') Group by diagnosis;";
 		System.out.println("DEBUG: query='" + query + "'");
 		Map<String, Integer> result = runSelectQuery(query);
 		System.out.println(result);
