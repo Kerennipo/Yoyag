@@ -112,13 +112,14 @@
         }
     }
     
+
     function getRawData() {
         var userID = '@Model.userID';
         var sessionID = '@Model.sessionID';
         userID = userID.trim();
         var token = "ABRAKADABR@1237";
         var postData = { "token": token, "userID": userID, "sessionID": sessionID};
-        var url = "http://127.0.0.1:8080/getStatistics";
+        var url = "/yoyag/Doctor/getStatistics";
         var xhttp = new XMLHttpRequest();
 
         xhttp.open("POST", url, false);
@@ -126,6 +127,8 @@
         xhttp.send(JSON.stringify(postData));
         return JSON.parse(xhttp.responseText);
     }
+
+
     function parseRawData(rawData) {
         var list = [['Diagnosis', 'Count']];
         Object.keys(rawData).forEach(function(key){
@@ -135,6 +138,8 @@
         return list;
     }
 </script>
+
+
 
 <script>
 
@@ -154,20 +159,19 @@
 
             $.ajax({
                 type: "POST",
-                url: "//127.0.0.1:8080/update",
+                url: "/yoyag/Doctor/updateDiagnosis",
                 data: Data,
                 success: function (data) {
                     console.log('Submission was successful.');
                     console.log(data);
-                    window.location.href = "/Patients/Done";
+                    window.location.href = "/yoyag/Doctor/Done";
                 },
                 error: function (data) {
                     console.log('An error occurred.');
                     console.log(data);
                 },
-                dataType: "json",
                 contentType: "application/json"
-            });
+        });
     });
 
-    </script>
+</script>

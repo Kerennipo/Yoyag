@@ -8,12 +8,12 @@
 
 
 <div id="notification">
-    <form id="patient-form" method="POST">
+    <form id="patient-form" name="myform" method="POST" action="/Patients/StringCreate">
 
         <h3>Please write your symptoms here: </h3>
 
         <div class="form-group">
-            <textarea name="name" id="text-area" class="scrollabletextbox" type="text" value="" ></textarea>
+            <textarea name="text-area" id="text-area" class="scrollabletextbox" type="text" value=""></textarea>
         </div>
 
         <div class="form-group">
@@ -37,28 +37,23 @@
         var currentDate = date.toLocaleString();
         var token = "ABRAKADABR@1237";
         var formData = document.getElementById("text-area").value;
-        var formDataObject = { "text": formData };
-        var postData = { "token": token, "userID": userID, "timestamp": currentDate, "data": formDataObject };
-        
+        var postData = { "token": token, "userID": userID, "timestamp": currentDate, "data": formData };
+
         var Data= JSON.stringify(postData);
         console.log(Data);
 
             $.ajax({
                 type: "POST",
-                url: "//127.0.0.1:8080/post",
+                url: "/yoyag/Patients/SendToServer",
                 data: Data,
-                success: function (data) {
+                success: function () {
                     console.log('Submission was successful.');
-                    console.log(data);
-                    window.location.href = "/Patients/Done";
+                    window.location.href = "/yoyag/Patients/Done";
                 },
-                error: function (data) {
+                error: function () {
                     console.log('An error occurred.');
-                    console.log(data);
                 },
-                dataType: "json",
                 contentType: "application/json"
-            });
+        });
         });
 </script>
-
