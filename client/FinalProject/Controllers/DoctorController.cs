@@ -1,4 +1,5 @@
 ﻿using FinalProject.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -104,6 +105,22 @@ namespace FinalProject.Controllers
 
 
             return RedirectToAction("Index");
+        }
+
+
+        public HttpStatusCodeResult updateDiagnosis(string token, string userID, string sessionID, string formData)
+        {
+            webproxy web = new webproxy();
+            return web.update(token, userID, sessionID, formData);
+          
+        }
+
+        public string getStatistics(string token, string userID, string sessionID)
+        {
+            webproxy web = new webproxy();
+            string tmp = web.getStats(token, userID, sessionID);
+            return tmp;
+
         }
 
 

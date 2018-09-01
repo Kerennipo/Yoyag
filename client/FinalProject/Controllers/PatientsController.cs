@@ -19,6 +19,7 @@ namespace FinalProject.Controllers
         {
             return View();
         }
+   
 
         public ActionResult Create(User user)
         {   
@@ -29,5 +30,17 @@ namespace FinalProject.Controllers
         {
             return View(user);
         }
+
+ 
+        public HttpStatusCodeResult SendToServer(string token,string userID,string timestamp,string data)
+        {
+            string user = userID.Trim();
+            webproxy web = new webproxy();
+            return web.patientSubmit(token, user, timestamp, data);
+
+        }
+
+ 
+
     }
 }

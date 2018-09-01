@@ -7,11 +7,11 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAADwG6ac7MgUqbmViFjA2HrQAAAAACAAAAAAADZgAAwAAAABAAAACJKY04OmR7LyJOQYmxjitaAAAAAASAAACgAAAAEAAAAIWK9TkJxT9Uv5TAbFJXKFMYAAAATwpoMxX5Bl9sf+D/uk5M5cIaDrXcqdBtFAAAAKFczX+wwlOoOdcL3B48MqYXLilL</EncryptedPassword>
-    <_PublishTargetUrl>ftp://db.cs.colman.ac.il/yoyag</_PublishTargetUrl>
+    <_PublishTargetUrl>ftp://db.cs.colman.ac.il/</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="ApplicationInsights.config">
-      <publishTime>04/22/2018 17:12:20</publishTime>
+      <publishTime>06/02/2018 15:20:36</publishTime>
     </File>
     <File Include="bin/Antlr3.Runtime.dll">
       <publishTime>04/22/2018 17:12:24</publishTime>
@@ -20,7 +20,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/22/2018 17:12:24</publishTime>
     </File>
     <File Include="bin/ApplicationInsights.config">
-      <publishTime>04/22/2018 17:12:20</publishTime>
+      <publishTime>06/02/2018 15:20:36</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>04/22/2018 17:12:24</publishTime>
@@ -29,10 +29,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/22/2018 17:12:24</publishTime>
     </File>
     <File Include="bin/FinalProject.dll">
-      <publishTime>05/29/2018 20:39:03</publishTime>
+      <publishTime>08/30/2018 17:37:07</publishTime>
     </File>
     <File Include="bin/FinalProject.pdb">
-      <publishTime>05/29/2018 20:39:03</publishTime>
+      <publishTime>08/30/2018 17:37:07</publishTime>
     </File>
     <File Include="bin/Microsoft.AI.Agent.Intercept.dll">
       <publishTime>04/22/2018 17:12:24</publishTime>
@@ -562,11 +562,44 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="bin/WebGrease.dll">
       <publishTime>04/22/2018 17:12:26</publishTime>
     </File>
+    <File Include="ClassDiagram1.cd">
+      <publishTime>08/26/2018 17:52:26</publishTime>
+    </File>
+    <File Include="Content/bootstrap-grid.css">
+      <publishTime>06/02/2018 15:19:42</publishTime>
+    </File>
+    <File Include="Content/bootstrap-grid.css.map">
+      <publishTime>06/02/2018 15:19:42</publishTime>
+    </File>
+    <File Include="Content/bootstrap-grid.min.css">
+      <publishTime>06/02/2018 15:19:42</publishTime>
+    </File>
+    <File Include="Content/bootstrap-grid.min.css.map">
+      <publishTime>06/02/2018 15:19:42</publishTime>
+    </File>
+    <File Include="Content/bootstrap-reboot.css">
+      <publishTime>06/02/2018 15:19:42</publishTime>
+    </File>
+    <File Include="Content/bootstrap-reboot.css.map">
+      <publishTime>06/02/2018 15:19:42</publishTime>
+    </File>
+    <File Include="Content/bootstrap-reboot.min.css">
+      <publishTime>06/02/2018 15:19:42</publishTime>
+    </File>
+    <File Include="Content/bootstrap-reboot.min.css.map">
+      <publishTime>06/02/2018 15:19:42</publishTime>
+    </File>
     <File Include="Content/bootstrap.css">
-      <publishTime>04/07/2018 17:12:17</publishTime>
+      <publishTime>06/02/2018 15:20:34</publishTime>
+    </File>
+    <File Include="Content/bootstrap.css.map">
+      <publishTime>06/02/2018 15:19:42</publishTime>
     </File>
     <File Include="Content/bootstrap.min.css">
-      <publishTime>04/07/2018 17:12:17</publishTime>
+      <publishTime>06/02/2018 15:20:34</publishTime>
+    </File>
+    <File Include="Content/bootstrap.min.css.map">
+      <publishTime>06/02/2018 15:19:42</publishTime>
     </File>
     <File Include="Content/Site.css">
       <publishTime>05/08/2018 23:04:15</publishTime>
@@ -575,16 +608,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/22/2018 17:12:22</publishTime>
     </File>
     <File Include="fonts/glyphicons-halflings-regular.eot">
-      <publishTime>04/22/2018 17:12:22</publishTime>
+      <publishTime>06/02/2018 15:20:34</publishTime>
     </File>
     <File Include="fonts/glyphicons-halflings-regular.svg">
-      <publishTime>04/22/2018 17:12:22</publishTime>
+      <publishTime>06/02/2018 15:20:34</publishTime>
     </File>
     <File Include="fonts/glyphicons-halflings-regular.ttf">
-      <publishTime>04/22/2018 17:12:22</publishTime>
+      <publishTime>06/02/2018 15:20:34</publishTime>
     </File>
     <File Include="fonts/glyphicons-halflings-regular.woff">
-      <publishTime>04/22/2018 17:12:22</publishTime>
+      <publishTime>06/02/2018 15:20:34</publishTime>
     </File>
     <File Include="fonts/Lato-Black.ttf">
       <publishTime>08/06/2015 18:41:58</publishTime>
@@ -679,41 +712,161 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Models/YoyagDB.tt">
       <publishTime>01/05/2018 15:22:26</publishTime>
     </File>
+    <File Include="Scripts/bootstrap.bundle.js">
+      <publishTime>06/02/2018 15:19:42</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.bundle.js.map">
+      <publishTime>06/02/2018 15:19:42</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.bundle.min.js">
+      <publishTime>06/02/2018 15:19:42</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.bundle.min.js.map">
+      <publishTime>06/02/2018 15:19:42</publishTime>
+    </File>
     <File Include="Scripts/bootstrap.js">
-      <publishTime>04/22/2018 17:12:20</publishTime>
+      <publishTime>06/02/2018 15:20:34</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.js.map">
+      <publishTime>06/02/2018 15:19:42</publishTime>
     </File>
     <File Include="Scripts/bootstrap.min.js">
-      <publishTime>04/22/2018 17:12:20</publishTime>
+      <publishTime>06/02/2018 15:20:34</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.min.js.map">
+      <publishTime>06/02/2018 15:19:42</publishTime>
+    </File>
+    <File Include="Scripts/esm/popper-utils.js">
+      <publishTime>06/02/2018 15:19:42</publishTime>
+    </File>
+    <File Include="Scripts/esm/popper-utils.js.map">
+      <publishTime>06/02/2018 15:19:42</publishTime>
+    </File>
+    <File Include="Scripts/esm/popper-utils.min.js">
+      <publishTime>06/02/2018 15:19:42</publishTime>
+    </File>
+    <File Include="Scripts/esm/popper-utils.min.js.map">
+      <publishTime>06/02/2018 15:19:42</publishTime>
+    </File>
+    <File Include="Scripts/esm/popper.js">
+      <publishTime>06/02/2018 15:19:42</publishTime>
+    </File>
+    <File Include="Scripts/esm/popper.js.map">
+      <publishTime>06/02/2018 15:19:42</publishTime>
+    </File>
+    <File Include="Scripts/esm/popper.min.js">
+      <publishTime>06/02/2018 15:19:42</publishTime>
+    </File>
+    <File Include="Scripts/esm/popper.min.js.map">
+      <publishTime>06/02/2018 15:19:42</publishTime>
     </File>
     <File Include="Scripts/jquery-1.10.2.js">
-      <publishTime>04/22/2018 17:12:20</publishTime>
+      <publishTime>06/02/2018 15:20:34</publishTime>
     </File>
     <File Include="Scripts/jquery-1.10.2.min.js">
-      <publishTime>04/22/2018 17:12:20</publishTime>
+      <publishTime>06/02/2018 15:20:34</publishTime>
     </File>
     <File Include="Scripts/jquery-1.10.2.min.map">
-      <publishTime>04/22/2018 17:12:20</publishTime>
+      <publishTime>06/02/2018 15:20:34</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.3.1.js">
+      <publishTime>06/02/2018 15:19:30</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.3.1.min.js">
+      <publishTime>06/02/2018 15:19:30</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.3.1.min.map">
+      <publishTime>06/02/2018 15:19:30</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.3.1.slim.js">
+      <publishTime>06/02/2018 15:19:30</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.3.1.slim.min.js">
+      <publishTime>06/02/2018 15:19:30</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.3.1.slim.min.map">
+      <publishTime>06/02/2018 15:19:30</publishTime>
     </File>
     <File Include="Scripts/jquery.validate.js">
-      <publishTime>04/22/2018 17:12:20</publishTime>
+      <publishTime>06/02/2018 15:20:36</publishTime>
     </File>
     <File Include="Scripts/jquery.validate.min.js">
-      <publishTime>04/22/2018 17:12:20</publishTime>
+      <publishTime>06/02/2018 15:20:36</publishTime>
     </File>
     <File Include="Scripts/jquery.validate.unobtrusive.js">
-      <publishTime>04/22/2018 17:12:20</publishTime>
+      <publishTime>06/02/2018 15:20:36</publishTime>
     </File>
     <File Include="Scripts/jquery.validate.unobtrusive.min.js">
-      <publishTime>04/22/2018 17:12:20</publishTime>
+      <publishTime>06/02/2018 15:20:36</publishTime>
     </File>
     <File Include="Scripts/modernizr-2.6.2.js">
-      <publishTime>04/22/2018 17:12:20</publishTime>
+      <publishTime>06/02/2018 15:20:37</publishTime>
+    </File>
+    <File Include="Scripts/modernizr-2.8.3.js">
+      <publishTime>06/02/2018 15:19:40</publishTime>
+    </File>
+    <File Include="Scripts/popper-utils.js">
+      <publishTime>06/02/2018 15:19:42</publishTime>
+    </File>
+    <File Include="Scripts/popper-utils.js.map">
+      <publishTime>06/02/2018 15:19:42</publishTime>
+    </File>
+    <File Include="Scripts/popper-utils.min.js">
+      <publishTime>06/02/2018 15:19:42</publishTime>
+    </File>
+    <File Include="Scripts/popper-utils.min.js.map">
+      <publishTime>06/02/2018 15:19:42</publishTime>
+    </File>
+    <File Include="Scripts/popper.js">
+      <publishTime>06/02/2018 15:19:42</publishTime>
+    </File>
+    <File Include="Scripts/popper.js.map">
+      <publishTime>06/02/2018 15:19:41</publishTime>
+    </File>
+    <File Include="Scripts/popper.min.js">
+      <publishTime>06/02/2018 15:19:41</publishTime>
+    </File>
+    <File Include="Scripts/popper.min.js.map">
+      <publishTime>06/02/2018 15:19:41</publishTime>
+    </File>
+    <File Include="Scripts/README.md">
+      <publishTime>06/02/2018 15:19:41</publishTime>
     </File>
     <File Include="Scripts/respond.js">
-      <publishTime>04/22/2018 17:12:20</publishTime>
+      <publishTime>06/02/2018 15:20:38</publishTime>
+    </File>
+    <File Include="Scripts/respond.matchmedia.addListener.js">
+      <publishTime>06/02/2018 15:19:42</publishTime>
+    </File>
+    <File Include="Scripts/respond.matchmedia.addListener.min.js">
+      <publishTime>06/02/2018 15:19:42</publishTime>
     </File>
     <File Include="Scripts/respond.min.js">
-      <publishTime>04/22/2018 17:12:20</publishTime>
+      <publishTime>06/02/2018 15:20:38</publishTime>
+    </File>
+    <File Include="Scripts/umd/popper-utils.js">
+      <publishTime>06/02/2018 15:19:41</publishTime>
+    </File>
+    <File Include="Scripts/umd/popper-utils.js.map">
+      <publishTime>06/02/2018 15:19:41</publishTime>
+    </File>
+    <File Include="Scripts/umd/popper-utils.min.js">
+      <publishTime>06/02/2018 15:19:41</publishTime>
+    </File>
+    <File Include="Scripts/umd/popper-utils.min.js.map">
+      <publishTime>06/02/2018 15:19:41</publishTime>
+    </File>
+    <File Include="Scripts/umd/popper.js">
+      <publishTime>06/02/2018 15:19:41</publishTime>
+    </File>
+    <File Include="Scripts/umd/popper.js.map">
+      <publishTime>06/02/2018 15:19:41</publishTime>
+    </File>
+    <File Include="Scripts/umd/popper.min.js">
+      <publishTime>06/02/2018 15:19:41</publishTime>
+    </File>
+    <File Include="Scripts/umd/popper.min.js.map">
+      <publishTime>06/02/2018 15:19:41</publishTime>
     </File>
     <File Include="Views/Account/Create.cshtml">
       <publishTime>04/23/2018 21:38:32</publishTime>
@@ -731,7 +884,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/25/2018 19:34:59</publishTime>
     </File>
     <File Include="Views/Account/Login.cshtml">
-      <publishTime>04/25/2018 19:15:10</publishTime>
+      <publishTime>08/27/2018 17:36:51</publishTime>
     </File>
     <File Include="Views/Doctor/Delete.cshtml">
       <publishTime>04/23/2018 21:36:20</publishTime>
@@ -746,16 +899,25 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/28/2018 14:57:41</publishTime>
     </File>
     <File Include="Views/Doctor/Index.cshtml">
-      <publishTime>04/23/2018 14:55:00</publishTime>
+      <publishTime>05/31/2018 20:59:23</publishTime>
+    </File>
+    <File Include="Views/Doctor/patientDetails.cshtml">
+      <publishTime>05/31/2018 21:08:41</publishTime>
+    </File>
+    <File Include="Views/Doctor/summaryDetails.cshtml">
+      <publishTime>08/30/2018 17:46:06</publishTime>
     </File>
     <File Include="Views/Patients/Create.cshtml">
-      <publishTime>05/08/2018 19:52:34</publishTime>
+      <publishTime>08/25/2018 22:48:06</publishTime>
     </File>
     <File Include="Views/Patients/Done.cshtml">
       <publishTime>04/23/2018 21:54:30</publishTime>
     </File>
     <File Include="Views/Patients/StringCreate.cshtml">
-      <publishTime>05/29/2018 19:33:27</publishTime>
+      <publishTime>08/30/2018 17:45:30</publishTime>
+    </File>
+    <File Include="Views/Patients/Success.cshtml">
+      <publishTime>08/29/2018 17:13:20</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
       <publishTime>04/22/2018 17:12:20</publishTime>
@@ -770,7 +932,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/22/2018 17:12:20</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>05/29/2018 19:26:03</publishTime>
+      <publishTime>08/30/2018 17:38:22</publishTime>
     </File>
   </ItemGroup>
 </Project>
