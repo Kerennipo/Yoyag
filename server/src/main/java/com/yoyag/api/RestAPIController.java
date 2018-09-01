@@ -80,7 +80,9 @@ public class RestAPIController {
 		String sessionID = input.getSessionID();
 		String userID = input.getUserID();
 		
-		String query = "Select diagnosis, count(distinct userID) as userCount From patientData Where symptoms = (Select distinct symptoms From patientData Where token = \"" + sessionID + "\" and userID = \"" + userID + "\" and location = (SELECT distinct location from patientData where token = \"" + sessionID + "\")) Group by diagnosis;";
+		String query = "Select diagnosis, count(distinct userID) as userCount From patientData Where symptoms like CONCAT('%',"
+				+ "(Select distinct symptoms From patientData Where token = \"" + sessionID + "\" and userID = \"" + userID + "\" and location = (SELECT distinct location from patientData where token = \"" + sessionID + "\")),"
+						+ "'%') Group by diagnosis;";
 		System.out.println("DEBUG: query='" + query + "'");
 		Map<String, Integer> result = runSelectQuery(query);
 		System.out.println(result);
@@ -109,12 +111,10 @@ public class RestAPIController {
 		Connection conn = null;
 		try {
 		    conn =
-		    		DriverManager.getConnection("jdbc:mysql://localhost:3306/yoyagDB?" +
-		                    "user=root&password=!QAZ2wsx&useSSL=false");
-//			    	   DriverManager.getConnection("jdbc:mysql://localhost:3306/yoyagDB?" +
-//			                    "user=javauser&password=javaDBuser1!&useSSL=false");
-//			       DriverManager.getConnection("jdbc:mysql://193.106.55.122:2222/yoyagDB?" +
-//			                                   "user=javauser&password=javaDBuser1!&useSSL=false");
+//		    		DriverManager.getConnection("jdbc:mysql://localhost:3306/yoyagDB?" +
+//		                    "user=root&password=!QAZ2wsx&useSSL=false");
+			    	   DriverManager.getConnection("jdbc:mysql://localhost:3306/yoyagDB?" +
+			                    "user=javauser&password=javaDBuser1!&useSSL=false");
 		    //creating statements and running the query
 		    
 		    java.sql.PreparedStatement preparedStatement = null;
